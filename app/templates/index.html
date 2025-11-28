@@ -47,7 +47,10 @@
     {% else %}
         <!-- VISTA MEJORADA PARA USUARIOS PÚBLICOS -->
         <div class="welcome-public">
-            <h1>BookSmart 📚</h1>
+            <div class="hero-logo">
+                <img src="{{ url_for('static', filename='images/logo_booksmart.png') }}" alt="BookSmart Logo" class="main-logo">
+            </div>
+            <h1>BookSmart</h1>
             <h2>Descubre tu próxima lectura favorita</h2>
             <p class="hero-subtitle">Sistema de recomendación inteligente basado en RDF y ontologías semánticas</p>
             

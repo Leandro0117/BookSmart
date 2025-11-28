@@ -8,61 +8,237 @@
 
 {% block content %}
 <div class="recommendations-container">
-    <h2>📚 Mis Recomendaciones Personalizadas</h2>
-    
-    {% if user_insights and user_insights.patrones_temporales.estado == "analizado" %}
-    <div class="recommendation-context">
-        <h3>🎯 Basado en tu perfil de lectura:</h3>
-        <div class="profile-summary">
-            <p><strong>Autor favorito:</strong> {{ user_insights.preferencias_autores.autor_favorito }}</p>
-            <p><strong>Género preferido:</strong> {{ user_insights.preferencias_generos.genero_favorito }}</p>
-            <p><strong>Velocidad:</strong> {{ user_insights.velocidad_lectura.libros_mes }} libros/mes</p>
-            <p><strong>Nivel:</strong> {{ user_insights.nivel_exploracion }}</p>
+    <!-- HEADER PRINCIPAL -->
+    <div class="recommendations-header">
+        <div class="header-content">
+            <h1>📚 Mis Recomendaciones Personalizadas</h1>
+            <p class="header-subtitle">Libros seleccionados inteligentemente para ti</p>
+        </div>
+        <div class="recommendations-stats">
+            {% if recommendations %}
+            <span class="stats-count">{{ recommendations|length }} recomendaciones</span>
+            {% endif %}
         </div>
     </div>
-    {% endif %}
 
-    {% if recommendations %}
-    <div class="recommendations-grid">
-        {% for rec in recommendations %}
-        <div class="recommendation-card" data-confidence="{{ rec.confidence }}">
-            <div class="recommendation-header">
-                <h4>{{ rec.book.title }}</h4>
-                <span class="confidence-badge">{{ (rec.confidence * 100)|int }}% de confianza</span>
-            </div>
-            
-            <div class="book-details">
-                <p><strong>Autor:</strong> {{ rec.book.author }}</p>
-                <p><strong>Género:</strong> {{ rec.book.genre }}</p>
-                <p><strong>Año:</strong> {{ rec.book.year }}</p>
+    <!-- LAYOUT PRINCIPAL -->
+    <div class="recommendations-layout">
+        <!-- SIDEBAR DE CONTEXTO -->
+        <aside class="context-sidebar">
+            <div class="context-card">
+                <div class="context-header">
+                    <div class="context-icon">🎯</div>
+                    <h3>Tu Perfil de Lectura</h3>
+                </div>
                 
-                {% if rec.book.has_adaptations %}
-                <div class="adaptation-info">
-                    <small>🎬 {{ rec.book.adaptation_count }} adaptación(es)</small>
+                {% if user_insights and user_insights.patrones_temporales.estado == "analizado" %}
+                <div class="profile-insights">
+                    <div class="insight-item">
+                        <span class="insight-label">Autor Favorito</span>
+                        <span class="insight-value">{{ user_insights.preferencias_autores.autor_favorito }}</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-label">Género Preferido</span>
+                        <span class="insight-value">{{ user_insights.preferencias_generos.genero_favorito }}</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-label">Velocidad</span>
+                        <span class="insight-value">{{ user_insights.velocidad_lectura.libros_mes }} libros/mes</span>
+                    </div>
+                    <div class="insight-item">
+                        <span class="insight-label">Nivel</span>
+                        <span class="insight-value badge {{ user_insights.nivel_exploracion|lower }}">
+                            {{ user_insights.nivel_exploracion }}
+                        </span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="empty-context">
+                    <div class="empty-icon">📖</div>
+                    <p>Analizando tu perfil...</p>
+                    <p class="hint">Marca más libros como leídos para recomendaciones precisas</p>
                 </div>
                 {% endif %}
             </div>
-            
-            <div class="recommendation-reason">
-                <p><strong>🤔 Por qué te recomendamos esto:</strong></p>
-                <p>{{ rec.reason }}</p>
+
+            <!-- ALGORITMO EXPLICACIÓN -->
+            <div class="algorithm-info">
+                <h4>🧠 Cómo funciona</h4>
+                <div class="algorithm-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Analizamos tu historial</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Identificamos patrones</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Seleccionamos matches</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Calculamos confianza</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="recommendations-main">
+            {% if recommendations %}
+            <!-- FILTROS Y ORDENAMIENTO -->
+            <div class="recommendations-toolbar">
+                <div class="toolbar-left">
+                    <span class="results-count">{{ recommendations|length }} libros recomendados</span>
+                </div>
+                <div class="toolbar-right">
+                    <select class="sort-select">
+                        <option>Ordenar por confianza</option>
+                        <option>Ordenar por género</option>
+                        <option>Ordenar por autor</option>
+                    </select>
+                </div>
             </div>
 
-            <form method="POST" action="{{ url_for('main.mark_as_read') }}" class="read-form">
-                <input type="hidden" name="book_uri" value="{{ rec.book.uri }}">
-                <input type="hidden" name="book_title" value="{{ rec.book.title }}">
-                <button type="submit" class="btn-read">✅ Lo he leído</button>
-            </form>
-        </div>
-        {% endfor %}
+            <!-- GRID DE RECOMENDACIONES -->
+            <div class="recommendations-grid">
+                {% for rec in recommendations %}
+                <div class="recommendation-card" data-confidence="{{ rec.confidence }}">
+                    <div class="card-header">
+                        <div class="book-title-section">
+                            <h3 class="book-title">{{ rec.book.title }}</h3>
+                            <div class="confidence-indicator">
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width: {{ (rec.confidence * 100)|int }}%"></div>
+                                </div>
+                                <span class="confidence-value">{{ (rec.confidence * 100)|int }}%</span>
+                            </div>
+                        </div>
+                        <div class="book-meta">
+                            <span class="book-year">{{ rec.book.year }}</span>
+                            <span class="book-language">{{ rec.book.language }}</span>
+                            {% if rec.book.has_adaptations %}
+                            <span class="adaptation-badge">
+                                <span class="adaptation-icon">🎬</span>
+                                {{ rec.book.adaptation_count }}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="book-content">
+                        <div class="book-info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Autor</span>
+                                <span class="info-value">{{ rec.book.author }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Género</span>
+                                <span class="info-value">{{ rec.book.genre }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">País</span>
+                                <span class="info-value">{{ rec.book.country }}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Editorial</span>
+                                <span class="info-value">{{ rec.book.publisher }}</span>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-reason">
+                            <div class="reason-header">
+                                <span class="reason-icon">🤔</span>
+                                <h4>¿Por qué te recomendamos esto?</h4>
+                            </div>
+                            <p class="reason-text">{{ rec.reason }}</p>
+                        </div>
+
+                        {% if rec.book.description %}
+                        <div class="book-description">
+                            <p>{{ rec.book.description }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="card-actions">
+                        <form method="POST" action="{{ url_for('main.mark_as_read') }}" class="read-form">
+                            <input type="hidden" name="book_uri" value="{{ rec.book.uri }}">
+                            <input type="hidden" name="book_title" value="{{ rec.book.title }}">
+                            <button type="submit" class="btn-read">
+                                <span class="btn-icon">✅</span>
+                                Marcar como Leído
+                            </button>
+                        </form>
+                        <a href="#" class="btn-more-info">
+                            <span class="btn-icon">🔍</span>
+                            Más Detalles
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% else %}
+            <!-- ESTADO SIN RECOMENDACIONES -->
+            <div class="no-recommendations">
+                <div class="empty-state">
+                    <div class="empty-icon">📚</div>
+                    <h2>Comienza tu Viaje Literario</h2>
+                    <p>El sistema de recomendaciones necesita conocer tus preferencias para sugerirte libros perfectos.</p>
+                    
+                    <div class="suggestions">
+                        <h4>💡 Para comenzar:</h4>
+                        <ul>
+                            <li>Marca algunos libros como leídos en la búsqueda</li>
+                            <li>Explora diferentes géneros y autores</li>
+                            <li>Actualiza tu perfil regularmente</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="{{ url_for('main.search') }}" class="btn btn-primary">
+                            <span class="btn-icon">🔍</span>
+                            Explorar Biblioteca
+                        </a>
+                        <a href="{{ url_for('main.profile') }}" class="btn btn-secondary">
+                            <span class="btn-icon">👤</span>
+                            Ver Mi Perfil
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </main>
     </div>
-    
-    {% else %}
-    <div class="no-recommendations">
-        <h3>📖 Comienza tu viaje literario</h3>
-        <p>Marca algunos libros como leídos para recibir recomendaciones personalizadas.</p>
-        <a href="{{ url_for('main.search') }}" class="btn btn-primary">🔍 Buscar Libros</a>
-    </div>
-    {% endif %}
 </div>
+
+<!-- Script para animaciones -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animar barras de confianza
+    const confidenceBars = document.querySelectorAll('.confidence-fill');
+    confidenceBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 300);
+    });
+
+    // Efectos hover en tarjetas
+    const cards = document.querySelectorAll('.recommendation-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+</script>
 {% endblock %}

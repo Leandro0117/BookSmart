@@ -1,0 +1,5 @@
+@prefix bs: <http://www.booksmart.org/ontology/> .
+@prefix user: <http://www.booksmart.org/users/> .
+
+user:test bs:username "test" .
+

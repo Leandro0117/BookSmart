@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BookSmart - Sistema de Recomendación Inteligente{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo_booksmart.png') }}">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -12,7 +14,10 @@
         <header>
             <nav>
                 <div class="nav-brand">
-                    <h1>📚 BookSmart</h1>
+                    <div class="logo-container">
+                        <img src="{{ url_for('static', filename='images/logo_booksmart.png') }}" alt="BookSmart Logo" class="logo">
+                        <h1>BookSmart</h1>
+                    </div>
                 </div>
                 <div class="nav-links">
                     <a href="{{ url_for('main.index') }}">Inicio</a>
@@ -46,7 +51,11 @@
         </main>
 
         <footer>
-            <p>BookSmart - Sistema de Recomendación Inteligente</p>
+            <div class="footer-content">
+                <img src="{{ url_for('static', filename='images/logo_booksmart.png') }}" alt="BookSmart Logo" class="footer-logo">
+                <p>BookSmart - Sistema de Recomendación Inteligente</p>
+                <small>Tomás Muñóz & Kehiber Morelo</small>
+            </div>
         </footer>
     </div>
 </body>

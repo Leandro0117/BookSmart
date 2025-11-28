@@ -16,6 +16,17 @@
     padding: 0 2rem;
 }
 
+.hero-logo {
+    margin-bottom: 1.5rem;
+}
+
+.main-logo {
+    height: 80px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -37,6 +48,7 @@
     line-height: 1.6;
     color: var(--white);
 }
+
 
 /* Quick Stats para usuarios */
 .quick-stats {
@@ -332,6 +344,10 @@
         font-size: 1.6rem;
     }
     
+    .main-logo {
+        height: 60px;
+    }
+    
     .hero-subtitle {
         font-size: 1.1rem;
     }
@@ -383,6 +399,10 @@
     
     .hero h2 {
         font-size: 1.4rem;
+    }
+    
+    .main-logo {
+        height: 50px;
     }
     
     .features-section,

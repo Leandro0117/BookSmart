@@ -1,0 +1,12 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.booksmart.org/users/test> bs:hasRead bs:Book1,
+        bs:Book12 .
+
+bs:Book1 rdfs:label "Cien años de soledad" ;
+    bs:readAt "2025-11-27T21:01:20.903986" .
+
+bs:Book12 rdfs:label "Crónica de una muerte anunciada" ;
+    bs:readAt "2025-11-27T22:33:15.528781" .
+
