@@ -1,0 +1,36 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.booksmart.org/users/testuser> bs:hasRead bs:Book1,
+        bs:Book10,
+        bs:Book12,
+        bs:Book13,
+        bs:Book16,
+        bs:Book3,
+        bs:Book5,
+        bs:Book7 .
+
+bs:Book1 rdfs:label "Cien años de soledad" ;
+    bs:readAt "2025-11-27T02:26:34.739189" .
+
+bs:Book10 rdfs:label "1984" ;
+    bs:readAt "2025-11-27T02:24:27.461908" .
+
+bs:Book12 rdfs:label "Crónica de una muerte anunciada" ;
+    bs:readAt "2025-11-27T02:26:39.322227" .
+
+bs:Book13 rdfs:label "El aleph" ;
+    bs:readAt "2025-11-27T02:24:01.392808" .
+
+bs:Book16 rdfs:label "Orgullo y prejuicio" ;
+    bs:readAt "2025-11-27T02:25:02.942162" .
+
+bs:Book3 rdfs:label "El amor en los tiempos del cólera" ;
+    bs:readAt "2025-11-27T02:26:45.253872" .
+
+bs:Book5 rdfs:label "Ficciones" ;
+    bs:readAt "2025-11-27T02:25:43.056140" .
+
+bs:Book7 rdfs:label "La ciudad y los perros" ;
+    bs:readAt "2025-11-27T02:24:15.477966" .
+

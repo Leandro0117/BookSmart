@@ -1,0 +1,393 @@
+/* ===== ESTILOS ESPECÍFICOS PARA INDEX.HTML CON FONDO OSCURO ===== */
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-bg) 100%);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 4px solid var(--dark-red);
+}
+
+.welcome-user, .welcome-public {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    color: var(--white);
+}
+
+/* Quick Stats para usuarios */
+.quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(141, 22, 22, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--dark-red);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--light-red);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: var(--white);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: var(--white);
+}
+
+/* Botones mejorados */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--dark-red);
+    color: var(--white);
+    border-color: var(--dark-red);
+}
+
+.btn-primary:hover {
+    background: var(--light-red);
+    border-color: var(--light-red);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(142, 22, 22, 0.4);
+}
+
+.btn-secondary {
+    background: var(--card-bg);
+    color: var(--white);
+    border-color: var(--card-bg);
+}
+
+.btn-secondary:hover {
+    background: var(--dark-bg);
+    border-color: var(--light-red);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(216, 64, 64, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+/* Demo info */
+.demo-info {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(141, 22, 22, 0.3);
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid var(--dark-red);
+}
+
+.demo-info code {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    margin: 0 0.25rem;
+    color: var(--light-red);
+}
+
+/* Secciones generales */
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+}
+
+.section-header h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--medium-gray);
+    line-height: 1.6;
+}
+
+/* Features Section */
+.features-section {
+    padding: 4rem 0;
+    background: var(--dark-bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--dark-red);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(142, 22, 22, 0.4);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-red);
+}
+
+.feature-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.feature-card p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+}
+
+/* Popular Books Section */
+.popular-books {
+    padding: 4rem 0;
+    background: var(--dark-bg);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.book-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-left: 4px solid var(--dark-red);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(142, 22, 22, 0.3);
+}
+
+.book-cover {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--light-red);
+}
+
+.book-info h5 {
+    margin-bottom: 0.5rem;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.book-author {
+    color: var(--medium-gray);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.book-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.book-tag {
+    background: var(--dark-red);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Final CTA Section */
+.final-cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-bg) 100%);
+    color: var(--white);
+    text-align: center;
+    border-top: 4px solid var(--dark-red);
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    color: var(--white);
+}
+
+/* Responsive Design para index */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .quick-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h3 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.4rem;
+    }
+    
+    .features-section,
+    .popular-books,
+    .final-cta {
+        padding: 3rem 0;
+    }
+}

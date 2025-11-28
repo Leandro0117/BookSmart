@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Mi Perfil - BookSmart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>Mi Perfil de Lector</h2>
+    
+    <!-- TARJETAS PRINCIPALES -->
+    <div class="profile-info">
+        <div class="user-card">
+            <h3>👤 Información Personal</h3>
+            <p><strong>Usuario:</strong> {{ username }}</p>
+            <p><strong>Estado:</strong> 
+                {% if reading_history and reading_history|length > 0 %}
+                    Lector activo 📖 ({{ reading_history|length }} libros)
+                {% else %}
+                    Comenzando mi viaje literario 🌟
+                {% endif %}
+            </p>
+        </div>
+        
+        <div class="preferences-card">
+            <h3>🎯 Preferencias de Lectura</h3>
+            {% if user_insights and user_insights.patrones_temporales.estado == "analizado" %}
+                <p><strong>Autor favorito:</strong> {{ user_insights.preferencias_autores.autor_favorito }}</p>
+                <p><strong>Género preferido:</strong> {{ user_insights.preferencias_generos.genero_favorito }}</p>
+                <p><strong>Velocidad:</strong> {{ user_insights.velocidad_lectura.libros_mes }} libros/mes</p>
+                <p><strong>Nivel:</strong> {{ user_insights.nivel_exploracion }}</p>
+            {% else %}
+                <p>El agente está analizando tus preferencias...</p>
+                <p><em>Marca más libros como leídos para insights personalizados</em></p>
+            {% endif %}
+        </div>
+        
+        <div class="stats-card">
+            <h3>📊 Estadísticas</h3>
+            <p><strong>Libros leídos:</strong> {{ reading_history|length if reading_history else 0 }}</p>
+            {% if user_insights and user_insights.patrones_temporales.estado == "analizado" %}
+                <p><strong>Autores distintos:</strong> {{ user_insights.preferencias_autores.diversidad_autores }}</p>
+                <p><strong>Géneros explorados:</strong> {{ user_insights.preferencias_generos.diversidad_generos }}</p>
+                <p><strong>Autores releídos:</strong> {{ user_insights.preferencias_autores.autores_releidos|length }}</p>
+            {% else %}
+                <p><strong>Explorando gustos...</strong></p>
+                <p><strong>¡Sigue leyendo!</strong></p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- INSIGHTS DEL AGENTE (solo si hay datos) -->
+    {% if user_insights and user_insights.patrones_temporales.estado == "analizado" %}
+    <div class="agent-insights-section">
+        <h3>🧠 Análisis Inteligente de Tu Lectura</h3>
+        
+        <div class="insights-grid">
+            <!-- DISTRIBUCIÓN DE GÉNEROS -->
+            {% if user_insights.preferencias_generos.distribucion_generos %}
+            <div class="insight-card">
+                <h4>📈 Distribución de Géneros</h4>
+                <div class="genres-list">
+                    {% for genero, porcentaje in user_insights.preferencias_generos.distribucion_generos.items() %}
+                    <div class="genre-item">
+                        <span class="genre-name">{{ genero }}</span>
+                        <span class="genre-percentage">{{ (porcentaje * 100)|round(1) }}%</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- AUTORES FRECUENTES -->
+            <div class="insight-card">
+                <h4>👥 Autores Frecuentes</h4>
+                <div class="authors-list">
+                    {% for autor in user_insights.preferencias_autores.autores_frecuentes %}
+                    <div class="author-item">
+                        <span class="author-name">{{ autor }}</span>
+                        {% if autor in user_insights.preferencias_autores.autores_releidos %}
+                        <span class="reread-badge" title="Has releído este autor">🔄</span>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if user_insights.preferencias_autores.autores_releidos %}
+                <p><small>🔁 Has releído {{ user_insights.preferencias_autores.autores_releidos|length }} autor(es)</small></p>
+                {% endif %}
+            </div>
+            
+            <!-- SECUENCIAS LITERARIAS -->
+            <div class="insight-card">
+                <h4>🔍 Patrones de Lectura</h4>
+                {% if user_insights.secuencias_literarias.tiene_secuencias %}
+                    <p><strong>{{ user_insights.secuencias_literarias.secuencias|length }} patrón(es) detectado(s)</strong></p>
+                    {% for secuencia in user_insights.secuencias_literarias.secuencias %}
+                    <div class="sequence-item">
+                        <small>
+                            <strong>{{ secuencia.tipo|replace('_', ' ')|title }}:</strong><br>
+                            {{ secuencia.libros|join(' → ') }}
+                        </small>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>¡Sigue leyendo para descubrir patrones!</p>
+                    <small>El agente analiza cómo evolucionan tus lecturas</small>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- HISTORIAL DE LECTURAS -->
+    <div class="reading-history-section">
+        <h3>📚 Mi Historial de Lecturas</h3>
+        {% if reading_history %}
+            <div class="history-grid">
+                {% for book in reading_history %}
+                <div class="history-item">
+                    <div class="book-info">
+                        <strong>{{ book.title }}</strong>
+                        <small>Leído el: {{ book.read_at[:10] }}</small>
+                    </div>
+                    <form method="POST" action="{{ url_for('main.remove_from_history') }}" 
+                          class="remove-form" onsubmit="return confirm('¿Eliminar {{ book.title }} de tu historial?')">
+                        <input type="hidden" name="book_uri" value="{{ book.book_uri }}">
+                        <input type="hidden" name="book_title" value="{{ book.title }}">
+                        <button type="submit" class="btn-remove">🗑️ Eliminar</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-history">
+                <p>📭 Aún no has marcado ningún libro como leído.</p>
+                <p>¡Ve a <a href="{{ url_for('main.search') }}">Buscar Libros</a> y comienza tu historial!</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- ACCIONES -->
+    <div class="profile-actions">
+        <a href="{{ url_for('main.recommendations') }}" class="btn btn-primary">
+            Ver Mis Recomendaciones
+        </a>
+        <a href="{{ url_for('main.search') }}" class="btn btn-secondary">
+            🔍 Buscar Más Libros
+        </a>
+    </div>
+</div>
+{% endblock %}

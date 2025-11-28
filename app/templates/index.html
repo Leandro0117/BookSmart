@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    {% if session.user_id %}
+        <!-- VISTA MEJORADA PARA USUARIOS LOGUEADOS -->
+        <div class="welcome-user">
+            <h2>¡Bienvenido de vuelta, {{ session.username }}! 🎉</h2>
+            <p class="hero-subtitle">Tu próxima gran lectura te espera</p>
+            
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <span class="stat-icon">📚</span>
+                    <div class="stat-info">
+                        <span class="stat-number">{{ reading_stats.total_books or "0" }}</span>
+                        <span class="stat-label">Libros leídos</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">⭐</span>
+                    <div class="stat-info">
+                        <span class="stat-number">{{ reading_stats.favorite_genre or "Explorando" }}</span>
+                        <span class="stat-label">Género favorito</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="{{ url_for('main.recommendations') }}" class="btn btn-primary">
+                    <span class="btn-icon">📚</span>
+                    Ver Mis Recomendaciones
+                </a>
+                <a href="{{ url_for('main.search') }}" class="btn btn-secondary">
+                    <span class="btn-icon">🔍</span>
+                    Buscar Libros
+                </a>
+                <a href="{{ url_for('main.profile') }}" class="btn btn-outline">
+                    <span class="btn-icon">👤</span>
+                    Mi Perfil
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <!-- VISTA MEJORADA PARA USUARIOS PÚBLICOS -->
+        <div class="welcome-public">
+            <h1>BookSmart 📚</h1>
+            <h2>Descubre tu próxima lectura favorita</h2>
+            <p class="hero-subtitle">Sistema de recomendación inteligente basado en RDF y ontologías semánticas</p>
+            
+            <div class="cta-buttons">
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-large">
+                    <span class="btn-icon">🚀</span>
+                    Comenzar Ahora
+                </a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-secondary">
+                    <span class="btn-icon">🔑</span>
+                    Iniciar Sesión
+                </a>
+            </div>
+            
+            <div class="demo-info">
+                <p><strong>¿Quieres probar la demo?</strong> Usuario: <code>demo</code> / Contraseña: <code>demo123</code></p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Sección de características mejorada -->
+<div class="features-section">
+    <div class="section-header">
+        <h3>¿Por qué elegir BookSmart?</h3>
+        <p>La plataforma inteligente para lectores exigentes</p>
+    </div>
+    
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h4>Recomendaciones Personalizadas</h4>
+            <p>Basadas en tus gustos, autores favoritos y patrones de lectura únicos</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Inteligencia Semántica</h4>
+            <p>Usamos RDF y ontologías para entender el significado detrás de tus preferencias</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h4>Búsqueda Avanzada</h4>
+            <p>Encuentra libros por género, autor, época, país y características específicas</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h4>Análisis de Lectura</h4>
+            <p>Descubre tus patrones de lectura y evoluciona como lector</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🎬</div>
+            <h4>Adaptaciones</h4>
+            <p>Encuentra libros con versiones en cine, TV o audiolibros</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🌎</div>
+            <h4>Literatura Global</h4>
+            <p>Explora autores de diferentes países y movimientos literarios</p>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de libros populares -->
+<div class="popular-books">
+    <div class="section-header">
+        <h3>Libros Destacados en Nuestra Biblioteca</h3>
+        <p>Descubre algunas joyas literarias de nuestra colección</p>
+    </div>
+    
+    <div class="books-grid">
+        <div class="book-card">
+            <div class="book-cover">📖</div>
+            <div class="book-info">
+                <h5>Cien años de soledad</h5>
+                <p class="book-author">Gabriel García Márquez</p>
+                <div class="book-tags">
+                    <span class="book-tag">Realismo Mágico</span>
+                    <span class="book-tag">Colombia</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-cover">📖</div>
+            <div class="book-info">
+                <h5>1984</h5>
+                <p class="book-author">George Orwell</p>
+                <div class="book-tags">
+                    <span class="book-tag">Distopía</span>
+                    <span class="book-tag">Clásico</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-cover">📖</div>
+            <div class="book-info">
+                <h5>El nombre de la rosa</h5>
+                <p class="book-author">Umberto Eco</p>
+                <div class="book-tags">
+                    <span class="book-tag">Novela Histórica</span>
+                    <span class="book-tag">Misterio</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-cover">📖</div>
+            <div class="book-info">
+                <h5>Rayuela</h5>
+                <p class="book-author">Julio Cortázar</p>
+                <div class="book-tags">
+                    <span class="book-tag">Experimental</span>
+                    <span class="book-tag">Argentina</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Llamada a la acción final -->
+<div class="final-cta">
+    <div class="cta-content">
+        <h3>¿Listo para transformar tu experiencia de lectura?</h3>
+        <p>Únete a nuestra comunidad de lectores inteligentes</p>
+        {% if not session.user_id %}
+        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-large">
+            Crear Mi Cuenta Gratis
+        </a>
+        {% else %}
+        <a href="{{ url_for('main.search') }}" class="btn btn-primary btn-large">
+            Explorar Biblioteca Completa
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

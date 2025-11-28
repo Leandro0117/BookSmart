@@ -1,0 +1,474 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============ AUTORES ============
+
+bs:Author1 a bs:Author ;
+    rdfs:label "Gabriel García Márquez" ;
+    bs:hasNationality "Colombiano" ;
+    bs:literaryMovement "Realismo mágico" ;
+    bs:countryOfOrigin "Colombia" .
+
+bs:Author2 a bs:Author ;
+    rdfs:label "Isabel Allende" ;
+    bs:hasNationality "Chilena" ;
+    bs:literaryMovement "Realismo mágico" ;
+    bs:countryOfOrigin "Chile" .
+
+bs:Author3 a bs:Author ;
+    rdfs:label "Mario Vargas Llosa" ;
+    bs:hasNationality "Peruano" ;
+    bs:literaryMovement "Boom latinoamericano" ;
+    bs:countryOfOrigin "Perú" .
+
+bs:Author4 a bs:Author ;
+    rdfs:label "Jorge Luis Borges" ;
+    bs:hasNationality "Argentino" ;
+    bs:literaryMovement "Surrealismo" ;
+    bs:countryOfOrigin "Argentina" .
+
+bs:Author5 a bs:Author ;
+    rdfs:label "Julio Cortázar" ;
+    bs:hasNationality "Argentino" ;
+    bs:literaryMovement "Surrealismo" ;
+    bs:countryOfOrigin "Argentina" .
+
+bs:Author6 a bs:Author ;
+    rdfs:label "Laura Restrepo" ;
+    bs:hasNationality "Colombiana" ;
+    bs:literaryMovement "Realismo social" ;
+    bs:countryOfOrigin "Colombia" .
+
+bs:Author7 a bs:Author ;
+    rdfs:label "Carlos Ruiz Zafón" ;
+    bs:hasNationality "Español" ;
+    bs:literaryMovement "Realismo mágico" ;
+    bs:countryOfOrigin "España" .
+
+bs:Author8 a bs:Author ;
+    rdfs:label "Arturo Pérez-Reverte" ;
+    bs:hasNationality "Español" ;
+    bs:literaryMovement "Novela histórica" ;
+    bs:countryOfOrigin "España" .
+
+bs:Author9 a bs:Author ;
+    rdfs:label "Umberto Eco" ;
+    bs:hasNationality "Italiano" ;
+    bs:literaryMovement "Novela histórica" ;
+    bs:countryOfOrigin "Italia" .
+
+bs:Author10 a bs:Author ;
+    rdfs:label "George Orwell" ;
+    bs:hasNationality "Británico" ;
+    bs:literaryMovement "Distopía" ;
+    bs:countryOfOrigin "Reino Unido" .
+
+bs:Author11 a bs:Author ;
+    rdfs:label "Jane Austen" ;
+    bs:hasNationality "Británica" ;
+    bs:literaryMovement "Realismo" ;
+    bs:countryOfOrigin "Reino Unido" .
+
+bs:Author12 a bs:Author ;
+    rdfs:label "Haruki Murakami" ;
+    bs:hasNationality "Japonés" ;
+    bs:literaryMovement "Realismo mágico" ;
+    bs:countryOfOrigin "Japón" .
+
+# ============ EDITORIALES ============
+
+bs:Editorial1 a bs:Publisher ;
+    rdfs:label "Sudamericana" ;
+    bs:country "Argentina" .
+
+bs:Editorial2 a bs:Publisher ;
+    rdfs:label "Plaza & Janés" ;
+    bs:country "España" .
+
+bs:Editorial3 a bs:Publisher ;
+    rdfs:label "Alfaguara" ;
+    bs:country "España" .
+
+bs:Editorial4 a bs:Publisher ;
+    rdfs:label "Seix Barral" ;
+    bs:country "España" .
+
+bs:Editorial5 a bs:Publisher ;
+    rdfs:label "Penguin Random House" ;
+    bs:country "Estados Unidos" .
+
+bs:Editorial6 a bs:Publisher ;
+    rdfs:label "DeBolsillo" ;
+    bs:country "España" .
+
+bs:Editorial7 a bs:Publisher ;
+    rdfs:label "Tusquets" ;
+    bs:country "España" .
+
+bs:Editorial8 a bs:Publisher ;
+    rdfs:label "Planeta" ;
+    bs:country "España" .
+
+bs:Editorial9 a bs:Publisher ;
+    rdfs:label "Secker & Warburg" ;
+    bs:country "Reino Unido" .
+
+bs:Editorial10 a bs:Publisher ;
+    rdfs:label "Einaudi" ;
+    bs:country "Italia" .
+
+# ============ LIBROS CORREGIDOS ============
+
+# Realismo mágico
+bs:Book1 a bs:Book ;
+    rdfs:label "Cien años de soledad" ;
+    bs:hasAuthor bs:Author1 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "1967" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Colombia" ;
+    bs:publishedBy bs:Editorial1 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Soledad" ;
+    bs:hasTheme "Familia" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasAdaptation bs:Adaptation1 ;
+    dct:description "La historia de la familia Buendía en el pueblo ficticio de Macondo. Tiene adaptación al cine programada para 2024." .
+
+bs:Book2 a bs:Book ;
+    rdfs:label "La casa de los espíritus" ;
+    bs:hasAuthor bs:Author2 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "1982" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Chile" ;
+    bs:publishedBy bs:Editorial2 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Post-boom" ;
+    bs:hasTheme "Familia" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Política" ;
+    bs:hasAdaptation bs:Adaptation2 ;
+    dct:description "Saga familiar que abarca cuatro generaciones en un país latinoamericano. Adaptada al cine en 1993." .
+
+bs:Book3 a bs:Book ;
+    rdfs:label "El amor en los tiempos del cólera" ;
+    bs:hasAuthor bs:Author1 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "1985" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Colombia" ;
+    bs:publishedBy bs:Editorial3 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Post-boom" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Enfermedad" ;
+    bs:hasAdaptation bs:Adaptation3 ;
+    dct:description "Historia de amor que perdura a través de los años. Adaptada al cine en 2007." .
+
+bs:Book4 a bs:Book ;
+    rdfs:label "La sombra del viento" ;
+    bs:hasAuthor bs:Author7 ;
+    bs:hasGenre "Novela misterio" ;
+    bs:publicationYear "2001" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "España" ;
+    bs:publishedBy bs:Editorial8 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Libros" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Misterio" ;
+    dct:description "Un joven descubre un libro misterioso que cambiará su vida." .
+
+# Surrealismo/Fantástico
+bs:Book5 a bs:Book ;
+    rdfs:label "Ficciones" ;
+    bs:hasAuthor bs:Author4 ;
+    bs:hasGenre "Cuentos surrealistas" ;
+    bs:publicationYear "1944" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Argentina" ;
+    bs:publishedBy bs:Editorial4 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Vanguardias" ;
+    bs:hasTheme "Laberintos" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Realidad" ;
+    dct:description "Colección de cuentos que exploran los límites de la realidad." .
+
+bs:Book6 a bs:Book ;
+    rdfs:label "Rayuela" ;
+    bs:hasAuthor bs:Author5 ;
+    bs:hasGenre "Novela experimental" ;
+    bs:publicationYear "1963" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Argentina" ;
+    bs:publishedBy bs:Editorial4 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Búsqueda" ;
+    bs:hasTheme "Existencialismo" ;
+    dct:description "Novela que puede leerse de múltiples formas." .
+
+# Novela histórica
+bs:Book7 a bs:Book ;
+    rdfs:label "La ciudad y los perros" ;
+    bs:hasAuthor bs:Author3 ;
+    bs:hasGenre "Novela social" ;
+    bs:publicationYear "1963" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Perú" ;
+    bs:publishedBy bs:Editorial4 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Adolescencia" ;
+    bs:hasTheme "Violencia" ;
+    bs:hasTheme "Educación" ;
+    bs:hasAdaptation bs:Adaptation4 ;
+    dct:description "Vida en una academia militar en Lima. Adaptada al cine en 1985." .
+
+bs:Book8 a bs:Book ;
+    rdfs:label "El nombre de la rosa" ;
+    bs:hasAuthor bs:Author9 ;
+    bs:hasGenre "Novela histórica" ;
+    bs:publicationYear "1980" ;
+    bs:originalLanguage "Italiano" ;
+    bs:countryOfOrigin "Italia" ;
+    bs:publishedBy bs:Editorial10 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Postmodernismo" ;
+    bs:hasTheme "Misterio" ;
+    bs:hasTheme "Religión" ;
+    bs:hasTheme "Conocimiento" ;
+    bs:hasAdaptation bs:Adaptation5 ;
+    dct:description "Investigación de misteriosos crímenes en un monasterio medieval. Adaptada al cine en 1986." .
+
+bs:Book9 a bs:Book ;
+    rdfs:label "El club Dumas" ;
+    bs:hasAuthor bs:Author8 ;
+    bs:hasGenre "Novela misterio" ;
+    bs:publicationYear "1993" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "España" ;
+    bs:publishedBy bs:Editorial8 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Libros" ;
+    bs:hasTheme "Misterio" ;
+    bs:hasTheme "Ocultismo" ;
+    bs:hasAdaptation bs:Adaptation6 ;
+    dct:description "Un experto en libros antiguos investiga un manuscrito misterioso. Adaptada al cine como 'La novena puerta' en 1999." .
+
+# Distopía
+bs:Book10 a bs:Book ;
+    rdfs:label "1984" ;
+    bs:hasAuthor bs:Author10 ;
+    bs:hasGenre "Novela distópica" ;
+    bs:publicationYear "1949" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial9 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Distopía clásica" ;
+    bs:hasTheme "Totalitarismo" ;
+    bs:hasTheme "Vigilancia" ;
+    bs:hasTheme "Libertad" ;
+    bs:hasAdaptation bs:Adaptation7, bs:Adaptation8 ;
+    dct:description "Una visión distópica del futuro bajo un gobierno totalitario. Tiene dos adaptaciones al cine: 1956 y 1984." .
+
+# Realismo social
+bs:Book11 a bs:Book ;
+    rdfs:label "Delirio" ;
+    bs:hasAuthor bs:Author6 ;
+    bs:hasGenre "Novela realista" ;
+    bs:publicationYear "2004" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Colombia" ;
+    bs:publishedBy bs:Editorial3 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Locura" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Sociedad" ;
+    dct:description "Historia de amor y locura en medio del conflicto colombiano." .
+
+# Más libros para variedad
+bs:Book12 a bs:Book ;
+    rdfs:label "Crónica de una muerte anunciada" ;
+    bs:hasAuthor bs:Author1 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "1981" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Colombia" ;
+    bs:publishedBy bs:Editorial3 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Post-boom" ;
+    bs:hasTheme "Honor" ;
+    bs:hasTheme "Destino" ;
+    bs:hasTheme "Violencia" ;
+    bs:hasAdaptation bs:Adaptation9 ;
+    dct:description "Novela sobre un crimen anunciado. Adaptada al cine en 1987." .
+
+bs:Book13 a bs:Book ;
+    rdfs:label "El aleph" ;
+    bs:hasAuthor bs:Author4 ;
+    bs:hasGenre "Cuentos surrealistas" ;
+    bs:publicationYear "1949" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Argentina" ;
+    bs:publishedBy bs:Editorial4 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Vanguardias" ;
+    bs:hasTheme "Infinito" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Filosofía" ;
+    dct:description "Colección de cuentos que exploran conceptos de infinito y tiempo." .
+
+bs:Book14 a bs:Book ;
+    rdfs:label "Eva Luna" ;
+    bs:hasAuthor bs:Author2 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "1987" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Chile" ;
+    bs:publishedBy bs:Editorial2 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Post-boom" ;
+    bs:hasTheme "Narrativa" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Supervivencia" ;
+    dct:description "Historia de una joven contadora de historias en América Latina." .
+
+bs:Book15 a bs:Book ;
+    rdfs:label "Rebelión en la granja" ;
+    bs:hasAuthor bs:Author10 ;
+    bs:hasGenre "Sátira política" ;
+    bs:publicationYear "1945" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial9 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Distopía clásica" ;
+    bs:hasTheme "Política" ;
+    bs:hasTheme "Poder" ;
+    bs:hasTheme "Revolución" ;
+    bs:hasAdaptation bs:Adaptation10 ;
+    dct:description "Sátira política sobre el poder y la corrupción. Adaptada a animación en 1954." .
+
+bs:Book16 a bs:Book ;
+    rdfs:label "Orgullo y prejuicio" ;
+    bs:hasAuthor bs:Author11 ;
+    bs:hasGenre "Novela romántica" ;
+    bs:publicationYear "1813" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Segunda edición" ;
+    bs:literaryPeriod "Romanticismo" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Clase social" ;
+    bs:hasTheme "Matrimonio" ;
+    bs:hasAdaptation bs:Adaptation11, bs:Adaptation12 ;
+    dct:description "Clásico romántico sobre Elizabeth Bennet y Mr. Darcy. Tiene múltiples adaptaciones: película (2005) y serie de TV (1995)." .
+
+bs:Book17 a bs:Book ;
+    rdfs:label "Kafka en la orilla" ;
+    bs:hasAuthor bs:Author12 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "2002" ;
+    bs:originalLanguage "Japonés" ;
+    bs:countryOfOrigin "Japón" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Destino" ;
+    bs:hasTheme "Búsqueda" ;
+    bs:hasTheme "Surrealismo" ;
+    bs:hasAdaptation bs:Adaptation13 ;
+    dct:description "Novela sobre un joven que huye de su casa. Disponible como audiolibro desde 2015." .
+
+# ============ ADAPTACIONES ============
+
+bs:Adaptation1 a bs:Adaptation ;
+    rdfs:label "Cien años de soledad (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "2024" ;
+    bs:basedOn bs:Book1 .
+
+bs:Adaptation2 a bs:Adaptation ;
+    rdfs:label "La casa de los espíritus (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1993" ;
+    bs:basedOn bs:Book2 .
+
+bs:Adaptation3 a bs:Adaptation ;
+    rdfs:label "El amor en los tiempos del cólera (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "2007" ;
+    bs:basedOn bs:Book3 .
+
+bs:Adaptation4 a bs:Adaptation ;
+    rdfs:label "La ciudad y los perros (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1985" ;
+    bs:basedOn bs:Book7 .
+
+bs:Adaptation5 a bs:Adaptation ;
+    rdfs:label "El nombre de la rosa (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1986" ;
+    bs:basedOn bs:Book8 .
+
+bs:Adaptation6 a bs:Adaptation ;
+    rdfs:label "La novena puerta (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1999" ;
+    bs:basedOn bs:Book9 .
+
+bs:Adaptation7 a bs:Adaptation ;
+    rdfs:label "1984 (Película 1956)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1956" ;
+    bs:basedOn bs:Book10 .
+
+bs:Adaptation8 a bs:Adaptation ;
+    rdfs:label "1984 (Película 1984)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1984" ;
+    bs:basedOn bs:Book10 .
+
+bs:Adaptation9 a bs:Adaptation ;
+    rdfs:label "Crónica de una muerte anunciada (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1987" ;
+    bs:basedOn bs:Book12 .
+
+bs:Adaptation10 a bs:Adaptation ;
+    rdfs:label "Rebelión en la granja (Película animada)" ;
+    bs:adaptationType "Animación" ;
+    bs:year "1954" ;
+    bs:basedOn bs:Book15 .
+
+bs:Adaptation11 a bs:Adaptation ;
+    rdfs:label "Orgullo y prejuicio (Película 2005)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "2005" ;
+    bs:basedOn bs:Book16 .
+
+bs:Adaptation12 a bs:Adaptation ;
+    rdfs:label "Orgullo y prejuicio (Serie TV 1995)" ;
+    bs:adaptationType "Televisión" ;
+    bs:year "1995" ;
+    bs:basedOn bs:Book16 .
+
+bs:Adaptation13 a bs:Adaptation ;
+    rdfs:label "Kafka en la orilla (Audiolibro)" ;
+    bs:adaptationType "Audiolibro" ;
+    bs:year "2015" ;
+    bs:basedOn bs:Book17 .

@@ -1,0 +1,18 @@
+@prefix bs: <http://www.booksmart.org/ontology/> .
+@prefix user: <http://www.booksmart.org/users/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+user:demo a bs:User ;
+    bs:passwordHash "pbkdf2:sha256:260000$DemoHash123$abc123..." ;
+    bs:registrationDate "2024-01-01"^^xsd:date ;
+    bs:username "demo" .
+
+user:testuser bs:passwordHash "scrypt:32768:8:1$twI3yXckomIvCFG4$62d90e40295838285407c1687b6f8274de93f4d092112192bcb7c8c6ba095c38fff2e216f17f3c7542b8282edd428697129d9af6fc95a7bb5b0c9eb6e3eb916a" ;
+    bs:username "testuser" .
+
+user:testuser2 bs:passwordHash "scrypt:32768:8:1$ZMomjsiegnoRWot1$4ec00722565e51903bdb9e0955f3fc4cdb7bfc8e1badd979f4af13625d3e84b92e97a8261d15a966c0933f89a0bb5bde6ab419cda50205adce535b3e08365e7a" ;
+    bs:username "testuser2" .
+
+user:testuser3 bs:passwordHash "scrypt:32768:8:1$eubIaTQ6k0LSOnnY$8922f67ccdbf752968d317ae8fe7127e416f909f51db5eb5abdce8e0ed7c25c913a9151b5007d1bf7f6a2f4e3a61dad97503b3f685bec4277609fb652db28706" ;
+    bs:username "testuser3" .
+

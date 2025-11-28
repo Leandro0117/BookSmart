@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}Búsqueda Avanzada - BookSmart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <h2>🔍 Búsqueda Avanzada de Libros</h2>
+    <p class="page-description">Encuentra libros usando múltiples criterios de búsqueda</p>
+
+    <!-- FORMULARIO DE BÚSQUEDA AVANZADA -->
+    <form method="GET" action="{{ url_for('main.search') }}" class="advanced-search-form">
+        
+        <!-- BÚSQUEDA POR TEXTO -->
+        <div class="search-section">
+            <h4>📖 Búsqueda por Texto</h4>
+            <div class="form-group">
+                <input type="text" name="query" placeholder="Título, autor, descripción..." 
+                       value="{{ current_params.query or '' }}" class="search-input">
+            </div>
+        </div>
+
+        <!-- FILTROS BÁSICOS -->
+        <div class="filters-grid">
+            <div class="filter-group">
+                <label>🎭 Género</label>
+                <select name="genre">
+                    <option value="">Todos los géneros</option>
+                    {% for genre in filter_options.genres %}
+                    <option value="{{ genre }}" {% if current_params.genre == genre %}selected{% endif %}>
+                        {{ genre }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>✍️ Autor</label>
+                <select name="author">
+                    <option value="">Todos los autores</option>
+                    {% for author in filter_options.authors %}
+                    <option value="{{ author }}" {% if current_params.author == author %}selected{% endif %}>
+                        {{ author }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>🏢 Editorial</label>
+                <select name="publisher">
+                    <option value="">Todas las editoriales</option>
+                    {% for publisher in filter_options.publishers %}
+                    <option value="{{ publisher }}" {% if current_params.publisher == publisher %}selected{% endif %}>
+                        {{ publisher }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>📅 Año</label>
+                <select name="year">
+                    <option value="">Todos los años</option>
+                    {% for year in filter_options.years %}
+                    <option value="{{ year }}" {% if current_params.year == year %}selected{% endif %}>
+                        {{ year }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- FILTROS LITERARIOS -->
+        <div class="filters-grid">
+            <div class="filter-group">
+                <label>🌐 Idioma Original</label>
+                <select name="language">
+                    <option value="">Todos los idiomas</option>
+                    {% for language in filter_options.languages %}
+                    <option value="{{ language }}" {% if current_params.language == language %}selected{% endif %}>
+                        {{ language }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>🇵🇷 País de Origen</label>
+                <select name="country">
+                    <option value="">Todos los países</option>
+                    {% for country in filter_options.countries %}
+                    <option value="{{ country }}" {% if current_params.country == country %}selected{% endif %}>
+                        {{ country }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>📚 Edición</label>
+                <select name="edition">
+                    <option value="">Todas las ediciones</option>
+                    {% for edition in filter_options.editions %}
+                    <option value="{{ edition }}" {% if current_params.edition == edition %}selected{% endif %}>
+                        {{ edition }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>⏳ Época Literaria</label>
+                <select name="literary_period">
+                    <option value="">Todas las épocas</option>
+                    {% for period in filter_options.literary_periods %}
+                    <option value="{{ period }}" {% if current_params.literary_period == period %}selected{% endif %}>
+                        {{ period }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">🔍 Buscar Libros</button>
+            <a href="{{ url_for('main.search') }}" class="btn btn-secondary">🔄 Limpiar Filtros</a>
+        </div>
+    </form>
+
+    <!-- RESULTADOS -->
+    {% if search_performed %}
+    <div class="search-results">
+        <h3>📚 Resultados ({{ books|length }} libros encontrados)</h3>
+        
+        {% if books %}
+        <div class="books-grid">
+            {% for book in books %}
+            <div class="book-card">
+                <div class="book-header">
+                    <h4>{{ book.title }}</h4>
+                    {% if book.has_adaptations %}
+                    <span class="adaptation-badge" title="Tiene {{ book.adaptation_count }} adaptación(es)">🎬</span>
+                    {% endif %}
+                </div>
+                
+                <div class="book-details">
+                    <p><strong>Autor:</strong> {{ book.author }}</p>
+                    <p><strong>Género:</strong> {{ book.genre }}</p>
+                    <p><strong>Año:</strong> {{ book.year }}</p>
+                    <p><strong>Idioma:</strong> {{ book.language }}</p>
+                    <p><strong>País:</strong> {{ book.country }}</p>
+                    <p><strong>Editorial:</strong> {{ book.publisher }}</p>
+                    <p><strong>Edición:</strong> {{ book.edition }}</p>
+                    <p><strong>Época:</strong> {{ book.literary_period }}</p>
+                    
+                    <!-- SECCIÓN DE ADAPTACIONES -->
+                    {% if book.has_adaptations %}
+                    <div class="adaptations-info">
+                        <p><strong>🎬 Adaptaciones ({{ book.adaptation_count }}):</strong></p>
+                        <ul class="adaptations-list">
+                            {% for adaptation in book.adaptation_details %}
+                            <li>{{ adaptation }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {% if book.themes %}
+                    <p><strong>Temas:</strong> {{ book.themes|join(', ') }}</p>
+                    {% endif %}
+                    
+                    {% if book.description %}
+                    <p class="book-description">{{ book.description }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- BOTÓN "LO HE LEÍDO" -->
+                <form method="POST" action="{{ url_for('main.mark_as_read') }}" class="read-form">
+                    <input type="hidden" name="book_uri" value="{{ book.uri }}">
+                    <input type="hidden" name="book_title" value="{{ book.title }}">
+                    <button type="submit" class="btn-read">✅ Lo he leído</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-results">
+            <p>No se encontraron libros con los criterios seleccionados.</p>
+            <p>Intenta ajustar los filtros o usar términos de búsqueda diferentes.</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

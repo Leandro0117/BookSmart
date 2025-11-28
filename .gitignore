@@ -1,0 +1,13 @@
+# ENTORNO VIRTUAL - NUNCA subir esto
+venv/
+
+# CACHE DE PYTHON - Se generan automáticamente
+__pycache__/
+*.pyc
+
+# ARCHIVOS DE SISTEMA
+.DS_Store
+Thumbs.db
+
+# VARIABLES DE ENTORNO - Contienen contraseñas
+.env
