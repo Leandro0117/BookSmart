@@ -1,0 +1,347 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ============ MAIN CLASSES ============
+
+bs:User a owl:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "Registered user in BookSmart system" .
+
+bs:Book a owl:Class ;
+    rdfs:label "Book" ;
+    rdfs:comment "Literary work in the system" .
+
+bs:Author a owl:Class ;
+    rdfs:label "Author" ;
+    rdfs:comment "Author of literary works" .
+
+bs:Genre a owl:Class ;
+    rdfs:label "Genre" ;
+    rdfs:comment "Literary genre" .
+
+bs:Publisher a owl:Class ;
+    rdfs:label "Publisher" ;
+    rdfs:comment "Publishing house" .
+
+bs:Adaptation a owl:Class ;
+    rdfs:label "Adaptation" ;
+    rdfs:comment "Adaptation of a literary work to other media" .
+
+bs:Recommendation a owl:Class ;
+    rdfs:label "Recommendation" ;
+    rdfs:comment "Recommendation generated for a user" .
+
+bs:ReadingPattern a owl:Class ;
+    rdfs:label "Reading Pattern" ;
+    rdfs:comment "Pattern detected in user's reading habits" .
+
+bs:LiteraryMovement a owl:Class ;
+    rdfs:label "Literary Movement" ;
+    rdfs:comment "Literary movement or current" .
+
+bs:Theme a owl:Class ;
+    rdfs:label "Theme" ;
+    rdfs:comment "Literary or conceptual theme" .
+
+# ============ USER PROPERTIES ============
+
+bs:hasRead a owl:ObjectProperty ;
+    rdfs:domain bs:User ;
+    rdfs:range bs:Book ;
+    rdfs:label "has read" ;
+    rdfs:comment "Indicates a user has read a book" .
+
+bs:readAt a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "read at" ;
+    rdfs:comment "When a user read a book" .
+
+bs:prefersGenre a owl:ObjectProperty ;
+    rdfs:domain bs:User ;
+    rdfs:range bs:Genre ;
+    rdfs:label "prefers genre" ;
+    rdfs:comment "User's preference for a literary genre" .
+
+bs:explorationLevel a owl:DatatypeProperty ;
+    rdfs:domain bs:User ;
+    rdfs:range xsd:string ;
+    rdfs:label "exploration level" ;
+    rdfs:comment "User's literary exploration level (low, medium, high)" .
+
+bs:readingVelocity a owl:DatatypeProperty ;
+    rdfs:domain bs:User ;
+    rdfs:range xsd:float ;
+    rdfs:label "reading velocity" ;
+    rdfs:comment "User's reading speed in books per month" .
+
+# ============ BOOK PROPERTIES ============
+
+bs:hasAuthor a owl:ObjectProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range bs:Author ;
+    rdfs:label "has author" ;
+    rdfs:comment "Book's author" .
+
+bs:hasGenre a owl:ObjectProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range bs:Genre ;
+    rdfs:label "has genre" ;
+    rdfs:comment "Book's literary genre" .
+
+bs:publishedBy a owl:ObjectProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range bs:Publisher ;
+    rdfs:label "published by" ;
+    rdfs:comment "Publisher of the book" .
+
+bs:publicationYear a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:integer ;
+    rdfs:label "publication year" ;
+    rdfs:comment "Year of publication" .
+
+bs:originalLanguage a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:string ;
+    rdfs:label "original language" ;
+    rdfs:comment "Original language of the work" .
+
+bs:countryOfOrigin a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:string ;
+    rdfs:label "country of origin" ;
+    rdfs:comment "Country of origin of the work" .
+
+bs:literaryPeriod a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:string ;
+    rdfs:label "literary period" ;
+    rdfs:comment "Literary period or movement of the work" .
+
+bs:editionInfo a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:string ;
+    rdfs:label "edition information" ;
+    rdfs:comment "Information about the book edition" .
+
+bs:hasAdaptation a owl:ObjectProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range bs:Adaptation ;
+    rdfs:label "has adaptation" ;
+    rdfs:comment "Indicates a book has an adaptation" .
+
+bs:description a owl:DatatypeProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range xsd:string ;
+    rdfs:label "description" ;
+    rdfs:comment "Description or synopsis of the book" .
+
+bs:hasTheme a owl:ObjectProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range bs:Theme ;
+    rdfs:label "has theme" ;
+    rdfs:comment "Themes treated in the book" .
+
+# ============ AUTHOR PROPERTIES ============
+
+bs:hasNationality a owl:DatatypeProperty ;
+    rdfs:domain bs:Author ;
+    rdfs:range xsd:string ;
+    rdfs:label "has nationality" ;
+    rdfs:comment "Author's nationality" .
+
+bs:literaryMovement a owl:DatatypeProperty ;
+    rdfs:domain bs:Author ;
+    rdfs:range xsd:string ;
+    rdfs:label "literary movement" ;
+    rdfs:comment "Literary movement the author belongs to" .
+
+bs:countryOfOrigin a owl:DatatypeProperty ;
+    rdfs:domain bs:Author ;
+    rdfs:range xsd:string ;
+    rdfs:label "country of origin" ;
+    rdfs:comment "Author's country of origin" .
+
+# ============ ADAPTATION PROPERTIES ============
+
+bs:adaptationType a owl:DatatypeProperty ;
+    rdfs:domain bs:Adaptation ;
+    rdfs:range xsd:string ;
+    rdfs:label "adaptation type" ;
+    rdfs:comment "Type of adaptation (film, TV, animation, audiobook)" .
+
+bs:year a owl:DatatypeProperty ;
+    rdfs:domain bs:Adaptation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "year" ;
+    rdfs:comment "Year the adaptation was made" .
+
+bs:basedOn a owl:ObjectProperty ;
+    rdfs:domain bs:Adaptation ;
+    rdfs:range bs:Book ;
+    rdfs:label "based on" ;
+    rdfs:comment "Book the adaptation is based on" .
+
+# ============ SEMANTIC RELATIONSHIPS ============
+
+bs:isSimilarTo a owl:TransitiveProperty, owl:ObjectProperty ;
+    rdfs:domain bs:Book ;
+    rdfs:range bs:Book ;
+    rdfs:label "is similar to" ;
+    rdfs:comment "Indicates semantic similarity between two books" .
+
+bs:influencedBy a owl:ObjectProperty ;
+    rdfs:domain bs:Author ;
+    rdfs:range bs:Author ;
+    rdfs:label "influenced by" ;
+    rdfs:comment "Indicates literary influence between authors" .
+
+bs:belongsToMovement a owl:ObjectProperty ;
+    rdfs:domain bs:Author ;
+    rdfs:range bs:LiteraryMovement ;
+    rdfs:label "belongs to movement" ;
+    rdfs:comment "Author's belonging to a literary movement" .
+
+# ============ RECOMMENDATION PROPERTIES ============
+
+bs:recommendedFor a owl:ObjectProperty ;
+    rdfs:domain bs:Recommendation ;
+    rdfs:range bs:User ;
+    rdfs:label "recommended for" ;
+    rdfs:comment "User the recommendation is generated for" .
+
+bs:recommendedBook a owl:ObjectProperty ;
+    rdfs:domain bs:Recommendation ;
+    rdfs:range bs:Book ;
+    rdfs:label "recommended book" ;
+    rdfs:comment "Book being recommended" .
+
+bs:recommendationReason a owl:DatatypeProperty ;
+    rdfs:domain bs:Recommendation ;
+    rdfs:range xsd:string ;
+    rdfs:label "recommendation reason" ;
+    rdfs:comment "Semantic explanation of why the book is recommended" .
+
+bs:recommendationConfidence a owl:DatatypeProperty ;
+    rdfs:domain bs:Recommendation ;
+    rdfs:range xsd:float ;
+    rdfs:label "recommendation confidence" ;
+    rdfs:comment "Confidence level of the recommendation (0.0 to 1.0)" .
+
+# ============ PATTERN DETECTION PROPERTIES ============
+
+bs:hasReadingPattern a owl:ObjectProperty ;
+    rdfs:domain bs:User ;
+    rdfs:range bs:ReadingPattern ;
+    rdfs:label "has reading pattern" ;
+    rdfs:comment "User has a detected reading pattern" .
+
+bs:patternType a owl:DatatypeProperty ;
+    rdfs:domain bs:ReadingPattern ;
+    rdfs:range xsd:string ;
+    rdfs:label "pattern type" ;
+    rdfs:comment "Type of reading pattern detected" .
+
+bs:patternStrength a owl:DatatypeProperty ;
+    rdfs:domain bs:ReadingPattern ;
+    rdfs:range xsd:float ;
+    rdfs:label "pattern strength" ;
+    rdfs:comment "Strength of the detected pattern (0.0 to 1.0)" .
+
+# ============ OWL RESTRICTIONS AND AXIOMS ============
+
+bs:User owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty bs:hasRead ;
+    owl:someValuesFrom bs:Book
+] .
+
+bs:Book owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty bs:hasAuthor ;
+    owl:someValuesFrom bs:Author
+] .
+
+# ============ PRE-DEFINED INSTANCES ============
+
+bs:MagicRealism a bs:Genre ;
+    rdfs:label "Magic Realism" .
+
+bs:Dystopian a bs:Genre ;
+    rdfs:label "Dystopian" .
+
+bs:HistoricalNovel a bs:Genre ;
+    rdfs:label "Historical Novel" .
+
+bs:Surrealism a bs:Genre ;
+    rdfs:label "Surrealism" .
+
+bs:LatinAmericanBoom a bs:LiteraryMovement ;
+    rdfs:label "Latin American Boom" .
+
+bs:Realism a bs:LiteraryMovement ;
+    rdfs:label "Realism" .
+
+bs:AvantGarde a bs:LiteraryMovement ;
+    rdfs:label "Avant-garde" .
+
+bs:Romanticism a bs:LiteraryMovement ;
+    rdfs:label "Romanticism" .
+
+# ============ THEME INSTANCES ============
+
+bs:Love a bs:Theme ;
+    rdfs:label "Love" .
+
+bs:Power a bs:Theme ;
+    rdfs:label "Power" .
+
+bs:Freedom a bs:Theme ;
+    rdfs:label "Freedom" .
+
+bs:Time a bs:Theme ;
+    rdfs:label "Time" .
+
+bs:Family a bs:Theme ;
+    rdfs:label "Family" .
+
+bs:Identity a bs:Theme ;
+    rdfs:label "Identity" .
+
+bs:SocialCritique a bs:Theme ;
+    rdfs:label "Social Critique" .
+
+# ============ PATTERN TYPES ============
+
+bs:AuthorExploration a bs:ReadingPattern ;
+    rdfs:label "Author Exploration" .
+
+bs:GenrePreference a bs:ReadingPattern ;
+    rdfs:label "Genre Preference" .
+
+bs:TemporalPattern a bs:ReadingPattern ;
+    rdfs:label "Temporal Pattern" .
+
+bs:ComplexityProgression a bs:ReadingPattern ;
+    rdfs:label "Complexity Progression" .
+
+# ============ DOMAIN AND RANGE ASSERTIONS ============
+
+bs:hasRead rdfs:domain bs:User ;
+    rdfs:range bs:Book .
+
+bs:hasAuthor rdfs:domain bs:Book ;
+    rdfs:range bs:Author .
+
+bs:hasGenre rdfs:domain bs:Book ;
+    rdfs:range bs:Genre .
+
+bs:hasAdaptation rdfs:domain bs:Book ;
+    rdfs:range bs:Adaptation .
+
+bs:basedOn rdfs:domain bs:Adaptation ;
+    rdfs:range bs:Book .

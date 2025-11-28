@@ -7,6 +7,9 @@ user:demo a bs:User ;
     bs:registrationDate "2024-01-01"^^xsd:date ;
     bs:username "demo" .
 
+user:kehiber bs:passwordHash "scrypt:32768:8:1$Hw6FJfLOuUsSrXXx$d54562b0d425bd759e5d82e535ad5d1f794985036f6a5e21a503626ea48f762f82f6cb9e7da4cc373f408900de820845a06095bb1640f47fbcd3b91b55cb9c08" ;
+    bs:username "kehiber" .
+
 user:testuser bs:passwordHash "scrypt:32768:8:1$twI3yXckomIvCFG4$62d90e40295838285407c1687b6f8274de93f4d092112192bcb7c8c6ba095c38fff2e216f17f3c7542b8282edd428697129d9af6fc95a7bb5b0c9eb6e3eb916a" ;
     bs:username "testuser" .
 

@@ -1,0 +1,13 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix user: <http://www.booksmart.org/users/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+user:kehiber bs:explorationLevel "alto_explorador" ;
+    bs:prefersAuthor "Gabriel García Márquez",
+        "George Orwell",
+        "Laura Restrepo" ;
+    bs:prefersGenre "Novela realista",
+        "Realismo mágico",
+        "Sátira política" ;
+    bs:readingVelocity 3 .
+

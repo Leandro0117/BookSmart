@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, session, redirect, url_for, reques
 from functools import wraps
 from app.services.semantic_query import semantic_query_service
 from app.services.reading_tracker import reading_tracker
+from app.models.agents.recommendation_agent import recommendation_agent
+from app.models.agents.user_profile_agent import user_profile_agent
 
 main_bp = Blueprint('main', __name__)
 
@@ -19,7 +21,24 @@ def login_required(f):
 @main_bp.route('/')
 def index():
     """Página de inicio - Acceso público"""
-    return render_template('index.html', username=session.get('username'))
+    reading_stats = {'total_books': 0, 'has_history': False}  # 🆕 VALORES POR DEFECTO
+    
+    # Solo calcular stats si el usuario está logueado
+    if 'user_id' in session:
+        user_uri = session.get('user_id')
+        try:
+            reading_history = reading_tracker.get_user_reading_history(user_uri)
+            reading_stats = {
+                'total_books': len(reading_history),
+                'has_history': len(reading_history) > 0
+            }
+        except Exception as e:
+            print(f"⚠️ Error obteniendo estadísticas de lectura: {e}")
+            # Mantener valores por defecto si hay error
+    
+    return render_template('index.html', 
+                         username=session.get('username'),
+                         reading_stats=reading_stats)  # 🆕 AGREGAR ESTA VARIABLE
 
 @main_bp.route('/profile')
 @login_required
@@ -66,8 +85,30 @@ def profile():
 @main_bp.route('/recommendations')
 @login_required
 def recommendations():
-    """Página de recomendaciones personalizadas - Requiere autenticación"""
-    return render_template('recommendations.html', username=session.get('username'))
+    """Página de recomendaciones personalizadas - ACTUALIZADA CON AGENTE"""
+    user_uri = session.get('user_id')
+    
+    # 🆕 OBTENER INSIGHTS DEL PERFIL
+    user_insights = None
+    try:
+        user_insights = user_profile_agent.analyze_user_profile(user_uri)
+    except Exception as e:
+        print(f"❌ Error obteniendo insights del perfil: {e}")
+        user_insights = None
+    
+    # 🆕 GENERAR RECOMENDACIONES CON EL NUEVO AGENTE
+    recommendations = []
+    try:
+        recommendations = recommendation_agent.generate_recommendations(user_insights)
+        print(f"🎯 {len(recommendations)} recomendaciones generadas para el usuario")
+    except Exception as e:
+        print(f"❌ Error generando recomendaciones: {e}")
+        flash('⚠️ Error generando recomendaciones. Intenta nuevamente.', 'error')
+    
+    return render_template('recommendations.html', 
+                         username=session.get('username'),
+                         user_insights=user_insights,
+                         recommendations=recommendations)  # 🆕 ENVIAR RECOMENDACIONES AL TEMPLATE
 
 @main_bp.route('/search', methods=['GET', 'POST'])
 @login_required

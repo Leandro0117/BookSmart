@@ -1,0 +1,16 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.booksmart.org/users/kehiber> bs:hasRead bs:Book11,
+        bs:Book12,
+        bs:Book15 .
+
+bs:Book11 rdfs:label "Delirio" ;
+    bs:readAt "2025-11-27T21:44:22.909027" .
+
+bs:Book12 rdfs:label "Crónica de una muerte anunciada" ;
+    bs:readAt "2025-11-27T21:44:53.449618" .
+
+bs:Book15 rdfs:label "Rebelión en la granja" ;
+    bs:readAt "2025-11-27T21:44:06.891920" .
+
