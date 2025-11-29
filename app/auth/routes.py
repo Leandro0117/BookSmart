@@ -10,7 +10,7 @@ def register():
     """
     Maneja el registro de nuevos usuarios en BookSmart
     """
-    # ✅ CORREGIDO: Si ya está logueado, redirigir a RECOMMENDATIONS
+    # Si ya está logueado, redirigir a RECOMMENDATIONS
     if 'user_id' in session:
         return redirect(url_for('main.recommendations'))
     
@@ -56,7 +56,7 @@ def login():
     """
     Maneja el login de usuarios en BookSmart
     """
-    # ✅ CORREGIDO: Si ya está logueado, redirigir a RECOMMENDATIONS
+    # Si ya está logueado, redirigir a RECOMMENDATIONS
     if 'user_id' in session:
         return redirect(url_for('main.recommendations'))
     
@@ -74,7 +74,7 @@ def login():
             session['user_id'] = user_uri
             session['username'] = username
             flash(f'🎉 ¡Bienvenido a BookSmart, {username}!', 'success')
-            # ✅ CORREGIDO: Redirigir a RECOMMENDATIONS, no al index
+            # Redirigir a RECOMMENDATIONS, no al index
             return redirect(url_for('main.recommendations'))
         else:
             flash('❌ Usuario o contraseña incorrectos', 'error')
@@ -85,5 +85,5 @@ def login():
 def logout():
     """Cierra la sesión del usuario"""
     session.clear()
-    # ✅ CORREGIDO: Mantener redirección al index (home público)
+    # Mantener redirección al index (home público)
     return redirect(url_for('main.index'))

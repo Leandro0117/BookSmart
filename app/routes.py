@@ -21,7 +21,7 @@ def login_required(f):
 @main_bp.route('/')
 def index():
     """Página de inicio - Acceso público"""
-    reading_stats = {'total_books': 0, 'has_history': False}  # 🆕 VALORES POR DEFECTO
+    reading_stats = {'total_books': 0, 'has_history': False}  # VALORES POR DEFECTO
     
     # Solo calcular stats si el usuario está logueado
     if 'user_id' in session:
@@ -38,7 +38,7 @@ def index():
     
     return render_template('index.html', 
                          username=session.get('username'),
-                         reading_stats=reading_stats)  # 🆕 AGREGAR ESTA VARIABLE
+                         reading_stats=reading_stats)  # AGREGAR ESTA VARIABLE
 
 @main_bp.route('/profile')
 @login_required
@@ -47,13 +47,13 @@ def profile():
     user_uri = session.get('user_id')
     reading_history = reading_tracker.get_user_reading_history(user_uri)
     
-    # 🆕 OBTENER INSIGHTS DEL AGENTE CON MEJOR MANEJO DE ERRORES
+    # OBTENER INSIGHTS DEL AGENTE CON MEJOR MANEJO DE ERRORES
     user_insights = None
     try:
         from app.models.agents.user_profile_agent import user_profile_agent
         user_insights = user_profile_agent.analyze_user_profile(user_uri)
         
-        # 🆕 VERIFICAR ESTRUCTURA DEL DICCIONARIO
+        # VERIFICAR ESTRUCTURA DEL DICCIONARIO
         if (user_insights and 
             'patrones_temporales' in user_insights and 
             'estado' in user_insights['patrones_temporales']):
