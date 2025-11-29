@@ -16,7 +16,7 @@
         </div>
         <div class="recommendations-stats">
             {% if recommendations %}
-            <span class="stats-count">{{ recommendations|length }} recomendaciones</span>
+            <span class="stats-count">{{ recommendations|length }} Recomendaciones</span>
             {% endif %}
         </div>
     </div>
@@ -111,7 +111,7 @@
                             <h3 class="book-title">{{ rec.book.title }}</h3>
                             <div class="confidence-indicator">
                                 <div class="confidence-bar">
-                                    <div class="confidence-fill" style="width: {{ (rec.confidence * 100)|int }}%"></div>
+                                    <div class="confidence-fill"></div>
                                 </div>
                                 <span class="confidence-value">{{ (rec.confidence * 100)|int }}%</span>
                             </div>
@@ -146,8 +146,11 @@
                                 <span class="info-label">Editorial</span>
                                 <span class="info-value">{{ rec.book.publisher }}</span>
                             </div>
+                            <div class="info-item">
+                                <span class="info-label">Descripcion</span>
+                                <span class="info-value">{{ rec.book.description }}</span>
+                            </div>
                         </div>
-
                         <div class="recommendation-reason">
                             <div class="reason-header">
                                 <span class="reason-icon">🤔</span>
@@ -155,14 +158,7 @@
                             </div>
                             <p class="reason-text">{{ rec.reason }}</p>
                         </div>
-
-                        {% if rec.book.description %}
-                        <div class="book-description">
-                            <p>{{ rec.book.description }}</p>
-                        </div>
-                        {% endif %}
                     </div>
-
                     <div class="card-actions">
                         <form method="POST" action="{{ url_for('main.mark_as_read') }}" class="read-form">
                             <input type="hidden" name="book_uri" value="{{ rec.book.uri }}">
@@ -172,11 +168,8 @@
                                 Marcar como Leído
                             </button>
                         </form>
-                        <a href="#" class="btn-more-info">
-                            <span class="btn-icon">🔍</span>
-                            Más Detalles
-                        </a>
                     </div>
+
                 </div>
                 {% endfor %}
             </div>

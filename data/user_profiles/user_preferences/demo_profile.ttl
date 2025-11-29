@@ -1,0 +1,9 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix user: <http://www.booksmart.org/users/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+user:demo bs:explorationLevel "alto_explorador" ;
+    bs:prefersAuthor "Federico García Lorca" ;
+    bs:prefersGenre "Poesía" ;
+    bs:readingVelocity 0 .
+

@@ -3,7 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 user:demo a bs:User ;
-    bs:passwordHash "pbkdf2:sha256:260000$DemoHash123$abc123..." ;
+    bs:passwordHash "scrypt:32768:8:1$DsTN7vy5sjrF3R55$8ae56a015d6a2380a6fc6b7e01920ac2182df16eff7939db6bc2fe109c268b6eb13d19b1a11978ad8ca0a7378b4d907f70d1f858170719cbccb432f90f267ece" ;
     bs:registrationDate "2024-01-01"^^xsd:date ;
     bs:username "demo" .
 

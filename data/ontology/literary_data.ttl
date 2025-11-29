@@ -77,6 +77,86 @@ bs:Author12 a bs:Author ;
     bs:literaryMovement "Realismo mágico" ;
     bs:countryOfOrigin "Japón" .
 
+bs:Author13 a bs:Author ;
+    rdfs:label "Stephen King" ;
+    bs:hasNationality "Estadounidense" ;
+    bs:literaryMovement "Terror" ;
+    bs:countryOfOrigin "Estados Unidos" .
+
+bs:Author14 a bs:Author ;
+    rdfs:label "Miguel de Cervantes" ;
+    bs:hasNationality "Español" ;
+    bs:literaryMovement "Siglo de Oro" ;
+    bs:countryOfOrigin "España" .
+
+bs:Author15 a bs:Author ;
+    rdfs:label "Pablo Neruda" ;
+    bs:hasNationality "Chileno" ;
+    bs:literaryMovement "Vanguardismo" ;
+    bs:countryOfOrigin "Chile" .
+
+bs:Author16 a bs:Author ;
+    rdfs:label "Octavio Paz" ;
+    bs:hasNationality "Mexicano" ;
+    bs:literaryMovement "Modernismo" ;
+    bs:countryOfOrigin "México" .
+
+bs:Author17 a bs:Author ;
+    rdfs:label "Juan Rulfo" ;
+    bs:hasNationality "Mexicano" ;
+    bs:literaryMovement "Realismo mágico" ;
+    bs:countryOfOrigin "México" .
+
+bs:Author18 a bs:Author ;
+    rdfs:label "Carlos Fuentes" ;
+    bs:hasNationality "Mexicano" ;
+    bs:literaryMovement "Boom latinoamericano" ;
+    bs:countryOfOrigin "México" .
+
+bs:Author19 a bs:Author ;
+    rdfs:label "José Saramago" ;
+    bs:hasNationality "Portugués" ;
+    bs:literaryMovement "Realismo mágico" ;
+    bs:countryOfOrigin "Portugal" .
+
+bs:Author20 a bs:Author ;
+    rdfs:label "Albert Camus" ;
+    bs:hasNationality "Francés" ;
+    bs:literaryMovement "Existencialismo" ;
+    bs:countryOfOrigin "Francia" .
+
+bs:Author21 a bs:Author ;
+    rdfs:label "Franz Kafka" ;
+    bs:hasNationality "Checo" ;
+    bs:literaryMovement "Expresionismo" ;
+    bs:countryOfOrigin "República Checa" .
+
+bs:Author22 a bs:Author ;
+    rdfs:label "Fiódor Dostoievski" ;
+    bs:hasNationality "Ruso" ;
+    bs:literaryMovement "Realismo" ;
+    bs:countryOfOrigin "Rusia" .
+
+bs:Author23 a bs:Author ;
+    rdfs:label "León Tolstói" ;
+    bs:hasNationality "Ruso" ;
+    bs:literaryMovement "Realismo" ;
+    bs:countryOfOrigin "Rusia" .
+
+bs:Author24 a bs:Author ;
+    rdfs:label "Virginia Woolf" ;
+    bs:hasNationality "Británica" ;
+    bs:literaryMovement "Modernismo" ;
+    bs:countryOfOrigin "Reino Unido" .
+
+bs:Author25 a bs:Author ;
+    rdfs:label "Ernest Hemingway" ;
+    bs:hasNationality "Estadounidense" ;
+    bs:literaryMovement "Modernismo" ;
+    bs:countryOfOrigin "Estados Unidos" .
+
+
+
 # ============ EDITORIALES ============
 
 bs:Editorial1 a bs:Publisher ;
@@ -118,6 +198,30 @@ bs:Editorial9 a bs:Publisher ;
 bs:Editorial10 a bs:Publisher ;
     rdfs:label "Einaudi" ;
     bs:country "Italia" .
+
+bs:Editorial11 a bs:Publisher ;
+    rdfs:label "Doubleday" ;
+    bs:country "Estados Unidos" .
+
+bs:Editorial12 a bs:Publisher ;
+    rdfs:label "Viking Press" ;
+    bs:country "Estados Unidos" .
+
+bs:Editorial13 a bs:Publisher ;
+    rdfs:label "Fondo de Cultura Económica" ;
+    bs:country "México" .
+
+bs:Editorial14 a bs:Publisher ;
+    rdfs:label "Editorial Porrúa" ;
+    bs:country "México" .
+
+bs:Editorial15 a bs:Publisher ;
+    rdfs:label "Gallimard" ;
+    bs:country "Francia" .
+
+bs:Editorial16 a bs:Publisher ;
+    rdfs:label "Scribner" ;
+    bs:country "Estados Unidos" .
 
 # ============ LIBROS CORREGIDOS ============
 
@@ -393,6 +497,519 @@ bs:Book17 a bs:Book ;
     bs:hasAdaptation bs:Adaptation13 ;
     dct:description "Novela sobre un joven que huye de su casa. Disponible como audiolibro desde 2015." .
 
+bs:Book18 a bs:Book ;
+    rdfs:label "It" ;
+    bs:hasAuthor bs:Author13 ;
+    bs:hasGenre "Terror" ;
+    bs:publicationYear "1986" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial11 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Terror" ;
+    bs:hasTheme "Infancia" ;
+    bs:hasTheme "Trauma" ;
+    bs:hasAdaptation bs:Adaptation14 ;
+    dct:description "Un grupo de niños enfrenta a una entidad malévola que toma la forma de sus peores miedos." .
+
+bs:Book19 a bs:Book ;
+    rdfs:label "El resplandor" ;
+    bs:hasAuthor bs:Author13 ;
+    bs:hasGenre "Terror psicológico" ;
+    bs:publicationYear "1977" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial12 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Locura" ;
+    bs:hasTheme "Aislamiento" ;
+    bs:hasTheme "Sobrenatural" ;
+    bs:hasAdaptation bs:Adaptation15 ;
+    dct:description "Un hombre acepta un trabajo como cuidador de un hotel aislado durante el invierno." .
+
+bs:Book20 a bs:Book ;
+    rdfs:label "Misery" ;
+    bs:hasAuthor bs:Author13 ;
+    bs:hasGenre "Terror psicológico" ;
+    bs:publicationYear "1987" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial11 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Obsesión" ;
+    bs:hasTheme "Cautiverio" ;
+    bs:hasTheme "Escritura" ;
+    bs:hasAdaptation bs:Adaptation16 ;
+    dct:description "Un escritor es mantenido cautivo por su fan número uno." .
+
+# Clásicos Españoles
+bs:Book21 a bs:Book ;
+    rdfs:label "Don Quijote de la Mancha" ;
+    bs:hasAuthor bs:Author14 ;
+    bs:hasGenre "Novela clásica" ;
+    bs:publicationYear "1605" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "España" ;
+    bs:publishedBy bs:Editorial14 ;
+    bs:editionInfo "Edición conmemorativa" ;
+    bs:literaryPeriod "Siglo de Oro" ;
+    bs:hasTheme "Caballería" ;
+    bs:hasTheme "Locura" ;
+    bs:hasTheme "Aventura" ;
+    dct:description "Las aventuras de un hidalgo que enloquece leyendo libros de caballerías." .
+
+# Poesía Latinoamericana
+bs:Book22 a bs:Book ;
+    rdfs:label "Veinte poemas de amor y una canción desesperada" ;
+    bs:hasAuthor bs:Author15 ;
+    bs:hasGenre "Poesía" ;
+    bs:publicationYear "1924" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Chile" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Vanguardismo" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Naturaleza" ;
+    bs:hasTheme "Melancolía" ;
+    dct:description "Uno de los libros de poesía más influyentes del siglo XX en español." .
+
+# Ensayo Mexicano
+bs:Book23 a bs:Book ;
+    rdfs:label "El laberinto de la soledad" ;
+    bs:hasAuthor bs:Author16 ;
+    bs:hasGenre "Ensayo" ;
+    bs:publicationYear "1950" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "México" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Identidad" ;
+    bs:hasTheme "Mexicanidad" ;
+    bs:hasTheme "Soledad" ;
+    dct:description "Análisis profundo del carácter y la identidad del pueblo mexicano." .
+
+# Realismo Mágico Mexicano
+bs:Book24 a bs:Book ;
+    rdfs:label "Pedro Páramo" ;
+    bs:hasAuthor bs:Author17 ;
+    bs:hasGenre "Realismo mágico" ;
+    bs:publicationYear "1955" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "México" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Realismo mágico" ;
+    bs:hasTheme "Muerte" ;
+    bs:hasTheme "Fantasma" ;
+    bs:hasTheme "Pueblo" ;
+    dct:description "Novela sobre un hombre que busca a su padre en un pueblo de muertos." .
+
+# Boom Latinoamericano
+bs:Book25 a bs:Book ;
+    rdfs:label "La muerte de Artemio Cruz" ;
+    bs:hasAuthor bs:Author18 ;
+    bs:hasGenre "Novela política" ;
+    bs:publicationYear "1962" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "México" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Revolución" ;
+    bs:hasTheme "Poder" ;
+    bs:hasTheme "Muerte" ;
+    dct:description "Reflexión sobre la vida y la muerte de un revolucionario mexicano." .
+
+# Literatura Portuguesa
+bs:Book26 a bs:Book ;
+    rdfs:label "Ensayo sobre la ceguera" ;
+    bs:hasAuthor bs:Author19 ;
+    bs:hasGenre "Novela distópica" ;
+    bs:publicationYear "1995" ;
+    bs:originalLanguage "Portugués" ;
+    bs:countryOfOrigin "Portugal" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Contemporáneo" ;
+    bs:hasTheme "Ceguera" ;
+    bs:hasTheme "Sociedad" ;
+    bs:hasTheme "Humanidad" ;
+    bs:hasAdaptation bs:Adaptation17 ;
+    dct:description "Una epidemia de ceguera blanca afecta a toda la población." .
+
+# Existencialismo Francés
+bs:Book27 a bs:Book ;
+    rdfs:label "El extranjero" ;
+    bs:hasAuthor bs:Author20 ;
+    bs:hasGenre "Novela existencialista" ;
+    bs:publicationYear "1942" ;
+    bs:originalLanguage "Francés" ;
+    bs:countryOfOrigin "Francia" ;
+    bs:publishedBy bs:Editorial15 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Existencialismo" ;
+    bs:hasTheme "Absurdo" ;
+    bs:hasTheme "Alienación" ;
+    bs:hasTheme "Muerte" ;
+    dct:description "Historia de un hombre indiferente a las convenciones sociales." .
+
+# Literatura Checa
+bs:Book28 a bs:Book ;
+    rdfs:label "La metamorfosis" ;
+    bs:hasAuthor bs:Author21 ;
+    bs:hasGenre "Novela corta" ;
+    bs:publicationYear "1915" ;
+    bs:originalLanguage "Alemán" ;
+    bs:countryOfOrigin "República Checa" ;
+    bs:publishedBy bs:Editorial15 ;
+    bs:editionInfo "Edición crítica" ;
+    bs:literaryPeriod "Expresionismo" ;
+    bs:hasTheme "Transformación" ;
+    bs:hasTheme "Alienación" ;
+    bs:hasTheme "Familia" ;
+    dct:description "Un hombre despierta convertido en un insecto gigante." .
+
+# Clásicos Rusos
+bs:Book29 a bs:Book ;
+    rdfs:label "Crimen y castigo" ;
+    bs:hasAuthor bs:Author22 ;
+    bs:hasGenre "Novela psicológica" ;
+    bs:publicationYear "1866" ;
+    bs:originalLanguage "Ruso" ;
+    bs:countryOfOrigin "Rusia" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Edición académica" ;
+    bs:literaryPeriod "Realismo" ;
+    bs:hasTheme "Culpa" ;
+    bs:hasTheme "Redención" ;
+    bs:hasTheme "Moral" ;
+    dct:description "Un estudiante comete un asesinato y lucha con su conciencia." .
+
+bs:Book30 a bs:Book ;
+    rdfs:label "Ana Karenina" ;
+    bs:hasAuthor bs:Author23 ;
+    bs:hasGenre "Novela realista" ;
+    bs:publicationYear "1877" ;
+    bs:originalLanguage "Ruso" ;
+    bs:countryOfOrigin "Rusia" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Edición completa" ;
+    bs:literaryPeriod "Realismo" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Infidelidad" ;
+    bs:hasTheme "Sociedad" ;
+    bs:hasAdaptation bs:Adaptation18 ;
+    dct:description "Tragedia amorosa en la alta sociedad rusa del siglo XIX." .
+
+# Modernismo Inglés
+bs:Book31 a bs:Book ;
+    rdfs:label "Mrs. Dalloway" ;
+    bs:hasAuthor bs:Author24 ;
+    bs:hasGenre "Novela modernista" ;
+    bs:publicationYear "1925" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Edición crítica" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Conciencia" ;
+    bs:hasTheme "Sociedad" ;
+    dct:description "Un día en la vida de Clarissa Dalloway en el Londres de posguerra." .
+
+# Literatura Estadounidense
+bs:Book32 a bs:Book ;
+    rdfs:label "El viejo y el mar" ;
+    bs:hasAuthor bs:Author25 ;
+    bs:hasGenre "Novela corta" ;
+    bs:publicationYear "1952" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial16 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Naturaleza" ;
+    bs:hasTheme "Lucha" ;
+    bs:hasTheme "Humanidad" ;
+    dct:description "Un viejo pescador lucha con un gigantesco pez en el mar." .
+
+bs:Book33 a bs:Book ;
+    rdfs:label "Por quién doblan las campanas" ;
+    bs:hasAuthor bs:Author25 ;
+    bs:hasGenre "Novela bélica" ;
+    bs:publicationYear "1940" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial16 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Guerra" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Sacrificio" ;
+    dct:description "Historia de un profesor estadounidense en la Guerra Civil Española." .
+
+# Más Literatura Latinoamericana
+bs:Book34 a bs:Book ;
+    rdfs:label "Cien sonetos de amor" ;
+    bs:hasAuthor bs:Author15 ;
+    bs:hasGenre "Poesía" ;
+    bs:publicationYear "1959" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Chile" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Vanguardismo" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Matilde" ;
+    bs:hasTheme "Dedicación" ;
+    dct:description "Colección de sonetos dedicados a su esposa Matilde Urrutia." .
+
+bs:Book35 a bs:Book ;
+    rdfs:label "Aura" ;
+    bs:hasAuthor bs:Author18 ;
+    bs:hasGenre "Novela corta" ;
+    bs:publicationYear "1962" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "México" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Misterio" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Sobrenatural" ;
+    dct:description "Un joven historiador acepta un trabajo peculiar en una casa misteriosa." .
+
+# Más Clásicos
+bs:Book36 a bs:Book ;
+    rdfs:label "Guerra y paz" ;
+    bs:hasAuthor bs:Author23 ;
+    bs:hasGenre "Novela histórica" ;
+    bs:publicationYear "1869" ;
+    bs:originalLanguage "Ruso" ;
+    bs:countryOfOrigin "Rusia" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Edición completa" ;
+    bs:literaryPeriod "Realismo" ;
+    bs:hasTheme "Guerra" ;
+    bs:hasTheme "Historia" ;
+    bs:hasTheme "Amor" ;
+    dct:description "Épica novela sobre la invasión napoleónica de Rusia." .
+
+bs:Book37 a bs:Book ;
+    rdfs:label "Al faro" ;
+    bs:hasAuthor bs:Author24 ;
+    bs:hasGenre "Novela modernista" ;
+    bs:publicationYear "1927" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Edición académica" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Familia" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Memoria" ;
+    dct:description "Exploración de la conciencia humana y las relaciones familiares." .
+
+bs:Book38 a bs:Book ;
+    rdfs:label "Las aventuras de Huckleberry Finn" ;
+    bs:hasAuthor bs:Author25 ;
+    bs:hasGenre "Novela de aventuras" ;
+    bs:publicationYear "1884" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial16 ;
+    bs:editionInfo "Edición completa" ;
+    bs:literaryPeriod "Realismo" ;
+    bs:hasTheme "Libertad" ;
+    bs:hasTheme "Amistad" ;
+    bs:hasTheme "Racismo" ;
+    dct:description "Aventuras de un niño y un esclavo fugitivo por el río Mississippi." .
+
+bs:Book39 a bs:Book ;
+    rdfs:label "El proceso" ;
+    bs:hasAuthor bs:Author21 ;
+    bs:hasGenre "Novela existencialista" ;
+    bs:publicationYear "1925" ;
+    bs:originalLanguage "Alemán" ;
+    bs:countryOfOrigin "República Checa" ;
+    bs:publishedBy bs:Editorial15 ;
+    bs:editionInfo "Edición póstuma" ;
+    bs:literaryPeriod "Expresionismo" ;
+    bs:hasTheme "Burocracia" ;
+    bs:hasTheme "Justicia" ;
+    bs:hasTheme "Alienación" ;
+    dct:description "Un hombre es arrestado y procesado por un crimen que desconoce." .
+
+bs:Book40 a bs:Book ;
+    rdfs:label "La peste" ;
+    bs:hasAuthor bs:Author20 ;
+    bs:hasGenre "Novela filosófica" ;
+    bs:publicationYear "1947" ;
+    bs:originalLanguage "Francés" ;
+    bs:countryOfOrigin "Francia" ;
+    bs:publishedBy bs:Editorial15 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Existencialismo" ;
+    bs:hasTheme "Epidemia" ;
+    bs:hasTheme "Solidaridad" ;
+    bs:hasTheme "Absurdo" ;
+    dct:description "Una ciudad es azotada por una epidemia de peste." .
+
+bs:Book41 a bs:Book ;
+    rdfs:label "Los hermanos Karamázov" ;
+    bs:hasAuthor bs:Author22 ;
+    bs:hasGenre "Novela filosófica" ;
+    bs:publicationYear "1880" ;
+    bs:originalLanguage "Ruso" ;
+    bs:countryOfOrigin "Rusia" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Edición completa" ;
+    bs:literaryPeriod "Realismo" ;
+    bs:hasTheme "Fe" ;
+    bs:hasTheme "Moral" ;
+    bs:hasTheme "Familia" ;
+    dct:description "Drama familiar que explora temas de fe, razón y moral." .
+
+bs:Book42 a bs:Book ;
+    rdfs:label "Orlando" ;
+    bs:hasAuthor bs:Author24 ;
+    bs:hasGenre "Novela biográfica" ;
+    bs:publicationYear "1928" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Género" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Identidad" ;
+    dct:description "Biografía ficticia de un personaje que vive através de varios siglos." .
+
+bs:Book43 a bs:Book ;
+    rdfs:label "Adiós a las armas" ;
+    bs:hasAuthor bs:Author25 ;
+    bs:hasGenre "Novela bélica" ;
+    bs:publicationYear "1929" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Estados Unidos" ;
+    bs:publishedBy bs:Editorial16 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Guerra" ;
+    bs:hasTheme "Amor" ;
+    bs:hasTheme "Pérdida" ;
+    dct:description "Historia de amor entre un soldado y una enfermera durante la Primera Guerra Mundial." .
+
+bs:Book44 a bs:Book ;
+    rdfs:label "El castillo" ;
+    bs:hasAuthor bs:Author21 ;
+    bs:hasGenre "Novela existencialista" ;
+    bs:publicationYear "1926" ;
+    bs:originalLanguage "Alemán" ;
+    bs:countryOfOrigin "República Checa" ;
+    bs:publishedBy bs:Editorial15 ;
+    bs:editionInfo "Edición póstuma" ;
+    bs:literaryPeriod "Expresionismo" ;
+    bs:hasTheme "Burocracia" ;
+    bs:hasTheme "Aislamiento" ;
+    bs:hasTheme "Absurdo" ;
+    dct:description "Un agrimensor lucha contra una burocracia impenetrable en un pueblo." .
+
+bs:Book45 a bs:Book ;
+    rdfs:label "Residencia en la tierra" ;
+    bs:hasAuthor bs:Author15 ;
+    bs:hasGenre "Poesía" ;
+    bs:publicationYear "1933" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Chile" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Vanguardismo" ;
+    bs:hasTheme "Existencialismo" ;
+    bs:hasTheme "Naturaleza" ;
+    bs:hasTheme "Melancolía" ;
+    dct:description "Una de las obras poéticas más importantes de Pablo Neruda." .
+
+bs:Book46 a bs:Book ;
+    rdfs:label "La región más transparente" ;
+    bs:hasAuthor bs:Author18 ;
+    bs:hasGenre "Novela urbana" ;
+    bs:publicationYear "1958" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "México" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Ciudad" ;
+    bs:hasTheme "Sociedad" ;
+    bs:hasTheme "Identidad" ;
+    dct:description "Retrato de la Ciudad de México en la década de 1950." .
+
+bs:Book47 a bs:Book ;
+    rdfs:label "El túnel" ;
+    bs:hasAuthor bs:Author20 ;
+    bs:hasGenre "Novela psicológica" ;
+    bs:publicationYear "1948" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "Argentina" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Existencialismo" ;
+    bs:hasTheme "Obsesión" ;
+    bs:hasTheme "Soledad" ;
+    bs:hasTheme "Crimen" ;
+    dct:description "Monólogo de un pintor que confiesa un asesinato por celos." .
+
+bs:Book48 a bs:Book ;
+    rdfs:label "El lobo estepario" ;
+    bs:hasAuthor bs:Author21 ;
+    bs:hasGenre "Novela filosófica" ;
+    bs:publicationYear "1927" ;
+    bs:originalLanguage "Alemán" ;
+    bs:countryOfOrigin "Suiza" ;
+    bs:publishedBy bs:Editorial15 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Expresionismo" ;
+    bs:hasTheme "Identidad" ;
+    bs:hasTheme "Alienación" ;
+    bs:hasTheme "Dualidad" ;
+    dct:description "Exploración de la división entre la naturaleza espiritual y animal del hombre." .
+
+bs:Book49 a bs:Book ;
+    rdfs:label "Las olas" ;
+    bs:hasAuthor bs:Author24 ;
+    bs:hasGenre "Novela experimental" ;
+    bs:publicationYear "1931" ;
+    bs:originalLanguage "Inglés" ;
+    bs:countryOfOrigin "Reino Unido" ;
+    bs:publishedBy bs:Editorial5 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Modernismo" ;
+    bs:hasTheme "Conciencia" ;
+    bs:hasTheme "Tiempo" ;
+    bs:hasTheme "Amistad" ;
+    dct:description "Innovadora novela que explora las conciencias de seis personajes." .
+
+bs:Book50 a bs:Book ;
+    rdfs:label "Paradiso" ;
+    bs:hasAuthor bs:Author18 ;
+    bs:hasGenre "Novela experimental" ;
+    bs:publicationYear "1966" ;
+    bs:originalLanguage "Español" ;
+    bs:countryOfOrigin "México" ;
+    bs:publishedBy bs:Editorial13 ;
+    bs:editionInfo "Primera edición" ;
+    bs:literaryPeriod "Boom latinoamericano" ;
+    bs:hasTheme "Familia" ;
+    bs:hasTheme "Homosexualidad" ;
+    bs:hasTheme "Poesía" ;
+    dct:description "Obra maestra del boom latinoamericano que mezcla narrativa y poesía." .
+
 # ============ ADAPTACIONES ============
 
 bs:Adaptation1 a bs:Adaptation ;
@@ -472,3 +1089,33 @@ bs:Adaptation13 a bs:Adaptation ;
     bs:adaptationType "Audiolibro" ;
     bs:year "2015" ;
     bs:basedOn bs:Book17 .
+
+bs:Adaptation14 a bs:Adaptation ;
+    rdfs:label "It (Película 2017)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "2017" ;
+    bs:basedOn bs:Book18 .
+
+bs:Adaptation15 a bs:Adaptation ;
+    rdfs:label "El resplandor (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1980" ;
+    bs:basedOn bs:Book19 .
+
+bs:Adaptation16 a bs:Adaptation ;
+    rdfs:label "Misery (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "1990" ;
+    bs:basedOn bs:Book20 .
+
+bs:Adaptation17 a bs:Adaptation ;
+    rdfs:label "Ensayo sobre la ceguera (Película)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "2008" ;
+    bs:basedOn bs:Book26 .
+
+bs:Adaptation18 a bs:Adaptation ;
+    rdfs:label "Ana Karenina (Película 2012)" ;
+    bs:adaptationType "Cine" ;
+    bs:year "2012" ;
+    bs:basedOn bs:Book30 .
