@@ -22,7 +22,7 @@
                 <div class="filters-count" id="activeFiltersCount">0 activos</div>
             </div>
             
-            <form method="GET" action="{{ url_for('main.search') }}" class="advanced-search-form">
+            <form method="GET" action="{{ url_for('main.search') }}" class="advanced-search-form" id="searchForm">
                 <!-- BÚSQUEDA POR TEXTO -->
                 <div class="filter-section">
                     <div class="section-header">
@@ -174,13 +174,13 @@
                     </div>
                 </div>
 
-                <!-- BOTONES DE ACCIÓN -->
+                <!-- BOTONES DE ACCIÓN CORREGIDOS -->
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary btn-search">
                         <span class="btn-icon">🔍</span>
                         Buscar Libros
                     </button>
-                    <button type="reset" class="btn btn-secondary btn-clear">
+                    <button type="button" class="btn btn-secondary btn-clear" id="clearAllBtn">
                         <span class="btn-icon">🔄</span>
                         Limpiar Todo
                     </button>
@@ -337,7 +337,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Contador de filtros activos
     function updateActiveFiltersCount() {
-        const form = document.querySelector('.advanced-search-form');
+        const form = document.getElementById('searchForm');
         const inputs = form.querySelectorAll('select, input[type="text"]');
         let activeCount = 0;
         
@@ -372,8 +372,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Limpiar TODOS los filtros
+    document.getElementById('clearAllBtn').addEventListener('click', function() {
+        const form = document.getElementById('searchForm');
+        
+        // Limpiar todos los campos
+        form.querySelectorAll('input[type="text"]').forEach(input => {
+            input.value = '';
+        });
+        
+        form.querySelectorAll('select').forEach(select => {
+            select.value = '';
+        });
+        
+        // Actualizar contador
+        updateActiveFiltersCount();
+        
+        // Enviar el formulario para mostrar resultados sin filtros
+        form.submit();
+    });
+    
     // Actualizar contador al cambiar filtros
-    document.querySelectorAll('.advanced-search-form select, .advanced-search-form input').forEach(element => {
+    document.querySelectorAll('#searchForm select, #searchForm input').forEach(element => {
         element.addEventListener('change', updateActiveFiltersCount);
         element.addEventListener('input', updateActiveFiltersCount);
     });

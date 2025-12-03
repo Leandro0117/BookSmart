@@ -44,6 +44,7 @@
     border-radius: 25px;
     font-size: 1.1rem;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 /* LAYOUT PRINCIPAL */
@@ -691,3 +692,4 @@
 .context-sidebar::-webkit-scrollbar-thumb:hover {
     background: var(--light-red);
 }
+

@@ -1,12 +1,12 @@
 from flask import Flask
-from config import Config  # 🆕 IMPORTAR CONFIG
+from config import Config  # IMPORTAR CONFIG
 
 def create_app():
     """
     Inicializa la aplicación Flask de BookSmart
     """
     app = Flask(__name__)
-    app.config.from_object(Config)  # 🆕 USAR CONFIG EN LUGAR DE MANUAL
+    app.config.from_object(Config)  # USAR CONFIG EN LUGAR DE MANUAL
     
     # Registrar blueprints
     from app.routes import main_bp

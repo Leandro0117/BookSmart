@@ -21,7 +21,7 @@ def login_required(f):
 @main_bp.route('/')
 def index():
     """Página de inicio - Acceso público"""
-    reading_stats = {'total_books': 0, 'has_history': False}  # 🆕 VALORES POR DEFECTO
+    reading_stats = {'total_books': 0, 'has_history': False}  # VALORES POR DEFECTO
     
     # Solo calcular stats si el usuario está logueado
     if 'user_id' in session:
@@ -38,7 +38,7 @@ def index():
     
     return render_template('index.html', 
                          username=session.get('username'),
-                         reading_stats=reading_stats)  # 🆕 AGREGAR ESTA VARIABLE
+                         reading_stats=reading_stats)  # AGREGAR ESTA VARIABLE
 
 @main_bp.route('/profile')
 @login_required
@@ -47,13 +47,13 @@ def profile():
     user_uri = session.get('user_id')
     reading_history = reading_tracker.get_user_reading_history(user_uri)
     
-    # 🆕 OBTENER INSIGHTS DEL AGENTE CON MEJOR MANEJO DE ERRORES
+    # OBTENER INSIGHTS DEL AGENTE CON MEJOR MANEJO DE ERRORES
     user_insights = None
     try:
         from app.models.agents.user_profile_agent import user_profile_agent
         user_insights = user_profile_agent.analyze_user_profile(user_uri)
         
-        # 🆕 VERIFICAR ESTRUCTURA DEL DICCIONARIO
+        # VERIFICAR ESTRUCTURA DEL DICCIONARIO
         if (user_insights and 
             'patrones_temporales' in user_insights and 
             'estado' in user_insights['patrones_temporales']):
@@ -85,30 +85,48 @@ def profile():
 @main_bp.route('/recommendations')
 @login_required
 def recommendations():
-    """Página de recomendaciones personalizadas - ACTUALIZADA CON AGENTE"""
+    """Página de recomendaciones personalizadas - CORREGIDA CON FILTRO DE LIBROS LEÍDOS"""
     user_uri = session.get('user_id')
     
-    # 🆕 OBTENER INSIGHTS DEL PERFIL
+    # OBTENER HISTORIAL DE LECTURA PARA FILTRAR (ESENCIAL)
+    reading_history = reading_tracker.get_user_reading_history(user_uri)
+    print(f"📚 Historial de lectura obtenido: {len(reading_history)} libros")
+    
+    # OBTENER INSIGHTS DEL PERFIL
     user_insights = None
     try:
+        from app.models.agents.user_profile_agent import user_profile_agent
         user_insights = user_profile_agent.analyze_user_profile(user_uri)
+        print(f"🎯 Insights del usuario obtenidos: {user_insights is not None}")
     except Exception as e:
         print(f"❌ Error obteniendo insights del perfil: {e}")
         user_insights = None
     
-    # 🆕 GENERAR RECOMENDACIONES CON EL NUEVO AGENTE
+    # GENERAR RECOMENDACIONES CON FILTRO DE LIBROS LEÍDOS
     recommendations = []
     try:
-        recommendations = recommendation_agent.generate_recommendations(user_insights)
-        print(f"🎯 {len(recommendations)} recomendaciones generadas para el usuario")
+        from app.models.agents.recommendation_agent import recommendation_agent
+        recommendations = recommendation_agent.generate_recommendations(
+            user_insights, 
+            reading_history  # ¡CRUCIAL: Pasar el historial para filtrar!
+        )
+        print(f"🎯 {len(recommendations)} recomendaciones generadas (libros no leídos)")
+        
+        # Debug: mostrar qué libros se filtraron
+        if reading_history:
+            print(f"📖 Libros en historial que NO se recomendarán: {[book.get('book_title', 'N/A') for book in reading_history]}")
+        
     except Exception as e:
         print(f"❌ Error generando recomendaciones: {e}")
+        import traceback
+        traceback.print_exc()
         flash('⚠️ Error generando recomendaciones. Intenta nuevamente.', 'error')
     
     return render_template('recommendations.html', 
                          username=session.get('username'),
                          user_insights=user_insights,
-                         recommendations=recommendations)  # 🆕 ENVIAR RECOMENDACIONES AL TEMPLATE
+                         recommendations=recommendations,
+                         reading_history_count=len(reading_history))  # Para el template
 
 @main_bp.route('/search', methods=['GET', 'POST'])
 @login_required

@@ -48,7 +48,7 @@ class SemanticQueryService:
         """
         print(f"🔍 SEMANTIC_QUERY: Iniciando búsqueda con params: {search_params}")
         
-        # 🆕 Solo estos filtros (sin adaptaciones)
+        # Solo estos filtros (sin adaptaciones)
         has_search_criteria = any([
             search_params.get('query'),
             search_params.get('genre'),
@@ -110,7 +110,7 @@ class SemanticQueryService:
         
         filter_clause = "FILTER (" + " && ".join(filters) + ")" if filters else ""
         
-        # 🆕 CONSULTA SIMPLE - Solo datos básicos
+        # CONSULTA SIMPLE - Solo datos básicos
         query = f"""
         PREFIX bs: <http://www.booksmart.org/ontology#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -155,7 +155,7 @@ class SemanticQueryService:
                 try:
                     book_uri = str(row.book) if row.book else ""
                     
-                    # 🆕 OBTENER INFO DE ADAPTACIONES PARA ESTE LIBRO
+                    # OBTENER INFO DE ADAPTACIONES PARA ESTE LIBRO
                     adaptations_info = self._get_book_adaptations(book_uri)
                     
                     book_data = {
@@ -171,7 +171,7 @@ class SemanticQueryService:
                         'edition': str(row.edition) if row.edition else "No especificado",
                         'literary_period': str(row.literaryPeriod) if row.literaryPeriod else "No especificado",
                         'themes': [],
-                        # 🆕 INFORMACIÓN DE ADAPTACIONES
+                        # INFORMACIÓN DE ADAPTACIONES
                         'adaptation_count': adaptations_info['adaptation_count'],
                         'adaptation_types': adaptations_info['adaptation_types'],
                         'adaptation_details': adaptations_info['adaptation_details'],

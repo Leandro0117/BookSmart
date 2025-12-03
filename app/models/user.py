@@ -26,7 +26,7 @@ class UserManager:
             self.users_graph.bind("bs", URIRef("http://www.booksmart.org/ontology/"))
             self.users_graph.bind("user", URIRef("http://www.booksmart.org/users/"))
         else:
-            print("🆕 Creando nuevo archivo de usuarios...")
+            print(" Creando nuevo archivo de usuarios...")
             self.setup_base_ontology()
     
     def setup_base_ontology(self):

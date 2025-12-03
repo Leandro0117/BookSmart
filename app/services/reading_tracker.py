@@ -33,7 +33,7 @@ class ReadingTracker:
                 user_graph.parse(user_filepath, format="turtle")
                 print(f"📖 Cargando historial existente de: {user_filename}")
                 
-                # 🆕 VERIFICAR SI EL LIBRO YA EXISTE
+                # VERIFICAR SI EL LIBRO YA EXISTE
                 check_query = """
                 PREFIX bs: <http://www.booksmart.org/ontology#>
                 ASK WHERE {
@@ -48,7 +48,7 @@ class ReadingTracker:
                 
                 if book_exists.askAnswer:
                     print(f"⚠️  Libro ya existe en historial: {book_title}")
-                    return False  # 🆕 No permitir duplicados
+                    return False  # No permitir duplicados
             
             # Agregar la lectura al grafo (solo si no existe)
             user_uri_ref = URIRef(user_uri)
@@ -63,7 +63,7 @@ class ReadingTracker:
             
             print(f"✅ LIBRO GUARDADO: '{book_title}' en historial de {user_uri}")
             
-            # 🆕 🧠 ACTIVAR AGENTE DE PERFIL DESPUÉS DE GUARDAR
+            # ACTIVAR AGENTE DE PERFIL DESPUÉS DE GUARDAR
             self._activate_profile_agent(user_uri)
             
             return True
@@ -150,7 +150,7 @@ class ReadingTracker:
             print(f"❌ Error obteniendo historial de lecturas: {e}")
             return []
         
-    # 🆕 🧠 MÉTODO NUEVO PARA ACTIVAR EL AGENTE
+    # MÉTODO NUEVO PARA ACTIVAR EL AGENTE
     def _activate_profile_agent(self, user_uri):
         """Activa el agente de perfil después de guardar un libro - MEJORADO"""
         try:

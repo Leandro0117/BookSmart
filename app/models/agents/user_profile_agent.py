@@ -121,7 +121,7 @@ class UserProfileAgent:
             traceback.print_exc()
             return []
 
-    # 🆕 MÉTODOS AUXILIARES PARA OBTENER DETALLES
+    # MÉTODOS AUXILIARES PARA OBTENER DETALLES
     def _get_book_author(self, literary_graph, book_uri):
         """Obtiene el autor de un libro desde los datos literarios"""
         try:
