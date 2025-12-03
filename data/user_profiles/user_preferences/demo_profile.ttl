@@ -2,8 +2,11 @@
 @prefix user: <http://www.booksmart.org/users/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-user:demo bs:explorationLevel "alto_explorador" ;
-    bs:prefersAuthor "Federico García Lorca" ;
-    bs:prefersGenre "Poesía" ;
-    bs:readingVelocity 0 .
+user:demo bs:explorationLevel "moderado_explorador" ;
+    bs:prefersAuthor "Franz Kafka",
+        "Laura Restrepo" ;
+    bs:prefersGenre "Novela corta",
+        "Novela existencialista",
+        "Novela realista" ;
+    bs:readingVelocity 3 .
 

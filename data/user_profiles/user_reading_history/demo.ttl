@@ -1,1 +1,16 @@
+@prefix bs: <http://www.booksmart.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.booksmart.org/users/demo> bs:hasRead bs:Book11,
+        bs:Book28,
+        bs:Book39 .
+
+bs:Book11 rdfs:label "Delirio" ;
+    bs:readAt "2025-12-03T17:26:06.528090" .
+
+bs:Book28 rdfs:label "La metamorfosis" ;
+    bs:readAt "2025-12-03T17:26:30.865234" .
+
+bs:Book39 rdfs:label "El proceso" ;
+    bs:readAt "2025-12-03T17:26:21.212793" .
 
