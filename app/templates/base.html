@@ -26,7 +26,7 @@
                         <a href="{{ url_for('main.search') }}">Buscar Libros</a>
                         <a href="{{ url_for('main.recommendations') }}">Mis Recomendaciones</a>
                         <a href="{{ url_for('main.profile') }}">Mi Perfil</a>
-                        <a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a>
+                        <a href="#" onclick="confirmLogout()">Cerrar Sesión</a>
                     {% else %}
                         <a href="{{ url_for('auth.login') }}">Iniciar Sesión</a>
                         <a href="{{ url_for('auth.register') }}">Registrarse</a>
@@ -58,5 +58,87 @@
             </div>
         </footer>
     </div>
+
+    <!-- Modal de confirmación para cerrar sesión -->
+    <div id="logoutModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-icon">📚</div>
+            <div class="modal-header">
+                <h3>¿Cerrar Sesión?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Estás a punto de salir de BookSmart. ¿Estás seguro de que quieres cerrar sesión?</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeLogoutModal()">
+                    <span class="btn-icon">←</span>
+                    Cancelar
+                </button>
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-primary" id="confirmLogoutBtn">
+                    <span class="btn-icon">🚪</span>
+                    Sí, Cerrar Sesión
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmLogout() {
+            const modal = document.getElementById('logoutModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+            
+            // Enfocar el botón de cancelar por defecto
+            setTimeout(() => {
+                const cancelBtn = modal.querySelector('.btn-secondary');
+                cancelBtn.focus();
+            }, 100);
+        }
+
+        function closeLogoutModal() {
+            const modal = document.getElementById('logoutModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('logoutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLogoutModal();
+            }
+        });
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLogoutModal();
+            }
+        });
+
+        // Manejar navegación por teclado en el modal
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('logoutModal');
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                    const focusable = modal.querySelectorAll('button, a');
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    
+                    if (e.shiftKey) {
+                        if (document.activeElement === first) {
+                            last.focus();
+                        }
+                    } else {
+                        if (document.activeElement === last) {
+                            first.focus();
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

@@ -105,15 +105,18 @@
             <!-- GRID DE RECOMENDACIONES -->
             <div class="recommendations-grid">
                 {% for rec in recommendations %}
+                {% set confidence_percentage = rec.confidence * 100 if rec.confidence else 0 %}
+                {% set confidence_display = confidence_percentage|round|int %}
+                
                 <div class="recommendation-card" data-confidence="{{ rec.confidence }}">
                     <div class="card-header">
                         <div class="book-title-section">
                             <h3 class="book-title">{{ rec.book.title }}</h3>
                             <div class="confidence-indicator">
                                 <div class="confidence-bar">
-                                    <div class="confidence-fill" style="width: {{ (rec.confidence * 100)|int }}%"></div>
+                                    <div class="confidence-fill" {{ confidence_display }}%"></div>
                                 </div>
-                                <span class="confidence-value">{{ (rec.confidence * 100)|int }}%</span>
+                                <span class="confidence-value">{{ confidence_display }}%</span>
                             </div>
                         </div>
                         <div class="book-meta">
